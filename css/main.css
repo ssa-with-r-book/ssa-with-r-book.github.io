@@ -1,0 +1,125 @@
+/*****************************************************************************/
+/*
+/* Common
+/*
+/*****************************************************************************/
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "AlteHaas";
+  src: url("../fonts/AlteHaasGroteskRegular.ttf") format("truetype");
+}
+
+html, body { height: 100%; }
+
+body {
+  background-image: url("../ssa2.png");
+  background-attachment: fixed;
+  font: 14px Helvetica, Arial, sans-serif;
+}
+
+#container {
+  position: relative;
+  width: 1000px;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+}
+
+#header {
+  width: 990px;
+  padding: 5px;
+  height: 50px;
+  background-color: #de99ac;
+  border: 1px solid;
+  border-color: #a82818;
+  border-radius: 5px;
+}
+
+#label {
+  float: left;
+  height: 50px;
+  padding-left: 5px;
+}
+
+#logo {
+  float: right;
+  height: 50px;
+}
+
+#content {
+  width: 980px;
+  padding: 10px;
+}
+
+#sidebar {
+  float: left;
+  width: 165px;
+  background-color: #f0d898;
+  border: 1px solid;
+  border-color: #a82818;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 0px;
+  font-family: Arial, sans-serif;
+}
+
+#topic {
+  float: right;
+  width: 720px;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #a82818;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 00px;
+  font-family: serif;
+}
+
+.clear {
+  clear: both;
+}
+
+#footer{
+  position: relative;
+  background-color: #f0d898;
+  text-align: center;
+  margin-bottom: 1em;
+  font-family: Arial, sans-serif;
+}
+
+h1 { 
+  margin-bottom: 1em; 
+}
+p { 
+  margin: 1em 0; 
+  text-indent: 1.5em;
+}
+
+ul, ol {
+  margin-left: 1em;
+  margin-bottom: 1em; 
+}
+
+a         { color: #a82818; }
+a:hover, a:visited:hover   { color: #000000; }
+a:visited { color: #b93929; }
+
+.biglink { 
+  color: #000000 !important; 
+  text-decoration: none !important;
+  font-family: "AlteHaas";
+  font-size: 24pt;
+}
+.biglink:hover   { color: #000000 !important; }
+.biglink:visited { color: #000000 !important; }
+
+.highlight {
+  margin-bottom: 1em;
+}

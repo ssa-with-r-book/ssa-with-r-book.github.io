@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge; charset=utf-8">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="{{ site.baseurl}}/ico/favicon.ico">
+
+    <title>{{ page.title }} | Singular Spectrum Analysis with R</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ site.baseurl}}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ site.baseurl}}/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+
+
+    <!-- Custom styles for this template -->
+    <link href="{{ site.baseurl}}/css/navbar.css" rel="stylesheet">
+    <link href="{{ site.baseurl}}/css/syntax.css" rel="stylesheet">
+    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+      MathJax.Hub.Config({
+        tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+        });
+    </script>
+
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <!-- Static navbar -->
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ site.baseurl}}/">SSA book</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <!--<li class="active"><a href="#">Link</a></li>-->
+              {% assign sortedpages = site.pages | sort:"path" %}
+              {% for lipage in sortedpages %}
+                {% if lipage.tags contains "mainpage" %}
+                  {% if page.url == lipage.url %}<li class="active">{% else %}<li>{% endif %}
+                  <a href="{{ site.baseurl}}{{ lipage.url }}">{{ lipage.title }}</a></li>
+                {% endif %}
+              {% endfor %}
+
+              {% for lipage in sortedpages %}
+                {% if lipage.tags contains "mainmenu" %}
+                  {% if page.url == lipage.url %}<li class="active">{% else %}<li>{% endif %}
+                  <a href="{{ site.baseurl}}{{ lipage.url }}">{{ lipage.title }}</a></li>
+                {% endif %}
+              {% endfor %}
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Theory review <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  {% for lipage in sortedpages %}
+                    {% if lipage.tags contains "theory" %}
+                      <li><a href="{{ site.baseurl}}{{ lipage.url }}">{{ lipage.title }}</a></li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Code fragments <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  {% for lipage in sortedpages %}
+                    {% if lipage.tags contains "codeexample" %}
+                      <li><a href="{{ site.baseurl}}{{ lipage.url }}">{{ lipage.title }}</a></li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              </li>
+            </ul>
+<!--             <ul class="nav navbar-nav navbar-right">
+               <li><a href="docs/" target="_blank">Documentation</a></li>
+            </ul>
+ -->          
+           </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </div>
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <!--<h1>Navbar example</h1>
+      <p>This example is a quick exercise to illustrate how the default, static navbar and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
+      <p>
+        <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
+      </p>-->
+      {{ content }}
+    </div> <!-- /container -->
+    <div id="footer">
+      <div class="container">
+          &copy; 2016 SSA team 
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="{{ site.baseurl}}/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="{{ site.baseurl}}/js/anchor.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      anchors.add('h1');
+      anchors.add('h2');
+    </script>
+  </body>
+</html>
