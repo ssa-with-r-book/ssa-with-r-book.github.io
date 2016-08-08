@@ -1,14 +1,12 @@
 ---
 layout: layout-bootstrap-tmp
-title: "BioSSA Team"
+title: "Authors"
 categories: examples
 permalink: about.html
 tags: mainmenu
 ---
 
-#  BioSSA team
-
-1. Alexander Spirov, PhD in Biology, Senior researcher, Laboratory of evolutionary modelling, Sechenov Institute of Evolutionary Physiology and Biochemistry of the Russian Academy of Sciences
+#  Authors of "Singular Spectrum Analysis with R"
 
 1. Nina Golyandina, PhD in Mathematics, Associate Professor, Chair of Statistical Modelling, St.Petersburg State University
 
