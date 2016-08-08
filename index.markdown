@@ -44,21 +44,39 @@ tags: mainpage
 
 # Contents
 
-1.	Loading data from files given in the following formats
-(x,y, gene expression).
-2.	Decomposition of data
-	-	Transformation of data to the scale 0-100% by AP and DV coordinates
-	-	Choice of rectangular area for analysis
-	-	Regularization of data (interpolation to regular grid), the step of the grid can be set.
-	-	Decomposition of regularized data by the 2D-SSA method
-	-	Interpolation of data to initial coordinates.
-3.	Checking the decomposition quality
-	- Profiles of patterns along AP or DV axis
-	- Profiles of noise along AP or DV axis
-4.	Analysis of residuals, model of residuals
-	-	Graphs of dependence of noise on patters, 
-	-	Estimation of noise model: additive, multiplicative or Poissonian model.
-5.	Pictures with the results of decomposition in 2D or 3D forms.
+1.	Introduction: Overview
+	-	General Scheme of the SSA family and the main concepts
+	-	Different versions of SSA
+	-	Separability in SSA
+	-	Forecasting, interpolation, low-rank approximation and parameter estimation in SSA
+	-	The package
+	-	Literature notes
+
+2.	SSA analysis of one-dimensional time series
+	-	Basic SSA
+	-	Toeplitz SSA
+	-	SSA with projection
+	-	Iterative Oblique SSA
+	-	Filter-adjusted O-SSA and SSA with derivatives
+	-	Shaped 1D-SSA
+	-	Automatic grouping in SSA
+	-	Case studies
+3.	Parameter estimation, forecasting, gap filling
+	-	Parameter estimation
+	-	Forecasting
+	-	Gap filling
+	-	Structured low-rank approximation
+	-	Case studies
+4.	SSA for multivariate time series
+	-	Complex SSA 
+	-	MSSA Analysis
+	-	MSSA forecasting
+	-	Case studies
+5.	Image processing
+	-	2D-SSA
+	-	Shaped 2D-SSA
+	-	2D ESPRIT
+	-	Case studies
 
 # Installation
 
