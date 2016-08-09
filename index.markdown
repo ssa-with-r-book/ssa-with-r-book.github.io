@@ -26,7 +26,7 @@ tags: mainpage
 					<li> to interconnect a variety of versions of SSA into a single  tool,</li>
 					<li> to show the diverse tasks  that SSA can be used for,</li>
 					<li> to formally describe  the main SSA methods and algorithms, and</li>
-					<li>to make a tutorial on the 'Rssa' package.</li>
+					<li>to make a tutorial on the "Rssa" package.</li>
 				</ul>
 			 </p>			
 		</div>
@@ -78,7 +78,7 @@ tags: mainpage
 	-	2D ESPRIT
 	-	Case studies
 
-# Installation
+# "Rssa" package
 
 The package is implemented as an [R-package](http://www.r-project.org/ ).
 
@@ -100,11 +100,6 @@ install_github("BioSSA/LinearInterpolator")
 install_github("BioSSA/BioSSA")
 {% endhighlight %}
 Be careful, `devtools` package has some additional dependences.
-
-# Method
-
-Decomposition of the image into a sum of pattern and noise is fulfilled
-by Shaped 2D/3D Singular Spectrum Analysis.
 
 # Support
 
