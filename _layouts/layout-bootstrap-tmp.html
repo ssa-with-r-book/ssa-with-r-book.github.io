@@ -85,7 +85,8 @@
                 <ul class="dropdown-menu">
                   {% for lipage in sortedpages %}
                     {% if lipage.tags contains "codeexample" %}
-                      <li><a href="{{ site.baseurl}}{{ lipage.url }}">{{ lipage.title }}</a></li>
+                      {% if page.url == lipage.url %}<li class="disabled">{% else %}<li>{% endif %}
+                        <a href="{{ site.baseurl}}{{ lipage.url }}">{{ lipage.title }}</a></li>
                     {% endif %}
                   {% endfor %}
                 </ul>
