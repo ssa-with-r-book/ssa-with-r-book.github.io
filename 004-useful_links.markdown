@@ -1,6 +1,6 @@
 ---
 layout: layout-bootstrap-tmp
-title: "Useful links"
+title: "Links"
 categories: examples
 permalink: useful-links.html
 tags: mainmenu
