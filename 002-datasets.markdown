@@ -13,7 +13,7 @@ Here you can find data used in the book for examples. All of them can be found i
 <table class="table table-striped table-hover">
 	<thead>
 		<tr>
-			<th>Data </th> <th>Short descripton </th><th>Length</th><th>Timing </th><th>R package </th><th>Data name </th>
+			<th>Data (source) </th> <th>Short descripton </th><th>Length (range)</th><th>Timing </th><th>R package </th><th>Data name </th>
 		</tr>
 	</thead>
 	<tbody>

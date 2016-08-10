@@ -42,7 +42,7 @@ tags: mainpage
 </div>
 
 
-# Contents
+# Contents of the book
 
 1.	Introduction: Overview
 	-	General Scheme of the SSA family and the main concepts
@@ -80,27 +80,24 @@ tags: mainpage
 
 # "Rssa" package
 
-The package is implemented as an [R-package](http://www.r-project.org/ ).
+[R-package](http://www.r-project.org/) `Rssa` provides effective, comfortable and accessible implementation for SSA.
+`Rssa` is well documented and contains many standard and non-standard tools for time series analysis and forecasting and image processing; it also has many visual tools which are useful for making proper choice of SSA parameters and examination of results. `Rssa` is the only SSA implementation available from CRAN and is almost certainly the most efficient implementation of SSA.
 
-Latest binary build for Windows could be found [here]( http://BioSSA.github.io/BioSSA_0.1.zip "BioSSA Windows binary build").
+You need to run the following code to install the package from [CRAN](http://cran.r-project.org/web/packages/Rssa/).
+{% highlight r %}
+install.packages("Rssa")
+{% endhighlight %}
+<p class="alert alert-warning">Note for Linux/MacOS users: "Rssa" package needs compilation. It means that you must have suitable build enviroment. The package also depends on <a href = "http://www.fftw.org/" class="alert-link">fftw</a> library, which can be installed by running "apt-get install libfftw3-bin libfftw3-dev" (Ubuntu Linux) or "brew install fftw" (MacOS, homebrew). </p>
 
-It essentially uses the [Rssa]( http://cran.r-project.org/web/packages/Rssa/ "Rssa link") package.
-You can also watch [Rssa GitHub repository]( https://github.com/asl/rssa/ "Rssa GitHub link").
-
-Also it uses multidimensional spatial interpolation procedures from our `LinearInterpolator` package, which requires the
-[CGAL]( http://www.cgal.org/ "CGAL official cite") library to be installed. For Windows `CGAL` compilation is rather complicated, so
-it's better to use [precompiled binary] (http://BioSSA.github.io/LinearInterpolator_0.1.zip).
-
-You can install both `LinearInterpolator` and `BioSSA` packages from GitHub directly (using Hadley's package [`devtools`]( http://cran.r-project.org/web/packages/devtools/index.html "devtools package CRAN page" ))
-by the following code:
+You can also find latest version at [Rssa GitHub repository]( https://github.com/asl/rssa/ "Rssa GitHub link"), and [build it manually](https://cran.r-project.org/doc/contrib/Leisch-CreatingPackages.pdf) or using Hadley's package [`devtools`]( http://cran.r-project.org/web/packages/devtools/index.html "devtools package CRAN page"):
 {% highlight r %}
 install.packages("devtools")
 library(devtools)
-install_github("BioSSA/LinearInterpolator")
-install_github("BioSSA/BioSSA")
+install_github("asl/rssa")
 {% endhighlight %}
 Be careful, `devtools` package has some additional dependences.
 
-# Support
+<!-- # Support
 
 This work is supported by the NG13-083 grant of Dynasty Foundation.
+ -->
