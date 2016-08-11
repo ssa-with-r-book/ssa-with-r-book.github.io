@@ -87,7 +87,10 @@ You need to run the following code to install the package from [CRAN](http://cra
 {% highlight r %}
 install.packages("Rssa")
 {% endhighlight %}
-<p class="alert alert-warning">Note for Linux/MacOS users: "Rssa" package needs compilation. It means that you must have suitable build enviroment. The package also depends on <a href = "http://www.fftw.org/" class="alert-link">fftw</a> library, which can be installed by running "apt-get install libfftw3-bin libfftw3-dev" (Ubuntu Linux) or "brew install fftw" (MacOS, homebrew). </p>
+
+Note for Linux/MacOS users: "Rssa" package needs compilation. It means that you must have suitable build enviroment. The package also depends on [fftw](http://www.fftw.org/){:class="alert-link"} library, which can be installed by running "apt-get install libfftw3-bin libfftw3-dev" (Ubuntu Linux) or "brew install fftw" (MacOS, homebrew).
+{:.alert .alert-warning}
+
 
 You can also find latest version at [Rssa GitHub repository]( https://github.com/asl/rssa/ "Rssa GitHub link"), and [build it manually](https://cran.r-project.org/doc/contrib/Leisch-CreatingPackages.pdf) or using Hadley's package [`devtools`]( http://cran.r-project.org/web/packages/devtools/index.html "devtools package CRAN page"):
 {% highlight r %}
