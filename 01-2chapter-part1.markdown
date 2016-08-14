@@ -1,12 +1,12 @@
 ---
 layout: layout-bootstrap-tmp
-title: "Chapter 2: SSA analysis of one-dimensional time series"
+title: "Chapter 2, Sections 2.1 &mdash; 2.7"
 categories: examples
-permalink: 01-chapter2.html
+permalink: 01-chapter2-part1.html
 tags: codeexample
 ---
 
-# Chapter 2: SSA analysis of one-dimensional time series
+# Chapter 2: SSA analysis of one-dimensional time series, Sections 2.1 &mdash; 2.7
 
 Here you can find code listings in `R` language from the corresponding chapter of the book.
 
@@ -102,7 +102,7 @@ plot(p, split = c(1, 2, 1, 2), more = FALSE)
 
 ### Fragment 2.2.2 (Simulation: comparison of Toeplitz and Basic SSA)
 
-Warning: this example takes a lot of computation time.
+Warning: this example takes a lot of computational time.
 {:.alert .alert-warning}
 
 {% highlight r %}
@@ -302,7 +302,7 @@ Iterative O-SSA result:
 
 ### Fragments 2.4.3 (Dependence of iossa error on difference between frequencies) and 2.4.4 (Plotting of dependence of iossa error on difference between frequencies)
 
-Warning: this example takes a lot of computation time.
+Warning: this example takes a lot of computational time.
 {:.alert .alert-warning}
 
 {% highlight r %}
@@ -472,4 +472,121 @@ plot(pr2, split = c(1, 2, 1, 2), more = FALSE)
   Elementary matrices are not F-orthogonal (max F-cor is 0.00525). Contributions can be irrelevant
 2: В .contribution(x, idx, ...) :
   Elementary matrices are not F-orthogonal (max F-cor is -0.0167). Contributions can be irrelevant
+```
+
+### Fragment 2.6.1 (Decomposition for series with a gap)
+{% highlight r %}
+
+library(Rssa)
+data(co2)
+F <- co2; F[100:200] <- NA
+#prompt for the choice of window length
+
+clplot(F)
+
+# Perform shaped SSA
+s1 <- ssa(F, L = 72)
+
+plot(s1, type = "vectors", idx = 1:12)
+
+plot(s1, type = "series", groups = 1:6, layout = c(2, 3))
+
+plot(wcor(s1, groups = 1:20))
+
+plot(reconstruct(s1, groups = list(c(1, 4, 7))), 
+     add.residuals = FALSE, 
+     plot.method = "xyplot", superpose = TRUE)
+
+
+{% endhighlight %}
+
+#### Produced output
+![Complete vectors proportion](img/chapter_2/261-vec.svg)
+![Reconstruction](img/chapter_2/261-rec.svg)
+![W-correlations](img/chapter_2/261-wcor.svg)
+![Reconstruction](img/chapter_2/261-recser.svg)
+
+### Fragment 2.6.2 (Incomplete decomposition for a series with a gap)
+{% highlight r %}
+library(Rssa)
+s2 <- ssa(F, L = 120)
+#plot(s2, type = "vectors")
+#plot(wcor(s2, groups = 1:20))
+#plot of reconstruction
+
+plot(reconstruct(s2, groups = list(c(1, 6, 7))), 
+     add.residuals = FALSE, 
+     plot.method = "xyplot", superpose = TRUE)
+{% endhighlight %}
+
+#### Produced output
+![Reconstruction](img/chapter_2/262.svg)
+
+### Fragment 2.7.1 (‘White dwarf’: Auto grouping by clustering)
+
+{% highlight r %}
+library(Rssa)
+library("ssabook")
+data("dwarfst")
+
+s <- ssa(dwarfst, L = 100)
+g <- grouping.auto(s, grouping.method = "wcor", 
+                   method = "average", nclust = 2)
+print(g[[1]])
+plot(wcor(s, groups = 1:30), scales = list(at = c(1, 11, 30)))
+plot(reconstruct(s, groups = g), 
+     add.residuals = FALSE, 
+     plot.method = "xyplot", superpose = FALSE)
+{% endhighlight %}
+
+#### Produced output
+![W-correlations](img/chapter_2/271-wcor.svg)
+![Reconstruction](img/chapter_2/271-rec.svg)
+
+```
+[1]  1  2  3  4  5  6  7  8  9 10 11
+```
+
+### Fragment 2.7.2 (‘Production’: Auto grouping by frequency analysis)
+{% highlight r %}
+library(Rssa)
+library("ssabook")
+data("oilproduction")
+
+s <- ssa(oilproduction, L = 120)
+plot(s, type = "vectors", vectors = "factor", idx = 1:12)
+g0 <- grouping.auto(s, base = "series", 
+                    freq.bins = list(Tendency = 1/240, 
+                                     Trend = 1/24), 
+                    threshold = 0.1)
+
+plot(g0, order = TRUE, type = "b")
+
+contrib <- attr(g0, "contributions")[, 2]
+print(thr <- sort(contrib, decreasing = TRUE)[9])
+g <- grouping.auto(s, base = "series", 
+                   freq.bins = list(Tendency = 1/240, 
+                                    Trend = 1/24), 
+                   threshold = thr)
+print(g[[1]])
+print(g[[2]])
+
+plot(reconstruct(s, groups = g), 
+     add.residuals = FALSE, 
+     plot.method = "xyplot", superpose = TRUE)
+
+{% endhighlight %}
+
+#### Produced output
+![Eigenvectors](img/chapter_2/272-vec.svg)
+![Relative Contributions](img/chapter_2/272-contrib.svg)
+![Reconstruction](img/chapter_2/272-rec.svg)
+
+```
+       8 
+0.861955 
+
+[1] 1 2
+
+[1]  1  2  3  6  8 11 12 17 18
 ```
