@@ -31,7 +31,7 @@ tags: mainpage
 			 </p>			
 		</div>
 		<div class="container col-md-4">
-			<img src="img/cover.jpg" class = "img-responsive" width = "260pt">
+			<img src="img/abstract_cover_placeholder.png" class = "img-responsive" width = "260pt">
 		</div>
 	</div>
 	<div class="row">
