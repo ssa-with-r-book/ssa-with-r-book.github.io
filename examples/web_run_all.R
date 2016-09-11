@@ -1,7 +1,10 @@
 source("ecruos_web.R")
 
 use_trueraster_plot <- c("sunspots_change22", "sunspots_change44", "Mars_shaped_mask_0",
-                         "Mars_shaped_mask_1", "Mars_shaped_mask_res")
+                         "Mars_shaped_mask_1", "Mars_shaped_mask_res",
+                         "brecon_rec_cumrest1_dft", "brecon_rec_cumrest2_dft", "brecon_rec_cumrest3_dft",
+                         "Mars_rect_vs_shaped")
+
 use_falseraster_plot <- c("3sin_ssa_wcor", "auto_wcor", "bootstrap_wcor",
                           "fort_wcor", "shssa_wcor", "Mars_25_ident_wcor",
                           "Mars_shaped_ident_wcor", "Mars_shaped_fossa_ident_wcor",
