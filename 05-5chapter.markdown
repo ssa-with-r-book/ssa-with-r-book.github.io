@@ -6,7 +6,7 @@ permalink: 05-chapter5.html
 tags: codeexample
 ---
 
-# Chapter 4: SSA for multivariate time series
+# Chapter 5: Image processing
 
 Here you can find code listings in `R` language from the corresponding chapter of the book.
 
