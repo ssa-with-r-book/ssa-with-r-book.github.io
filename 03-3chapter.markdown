@@ -8,12 +8,7 @@ tags: codeexample
 
 # Chapter 3: Parameter estimation, forecasting, gap filling
 
-Here you can find code listings in `R` language from the corresponding chapter of the book.
-
-## Contents
-{: .no_toc}
-1. TOC
-{:toc}
+{% include header.txt %}
 
 ### Fragment 3.1.1 (LRRs and roots of characteristic polynomials)
 
@@ -63,10 +58,9 @@ Here you can find code listings in `R` language from the corresponding chapter o
 {% include sources_ch1/igapfill2.txt %}
 
 #### Produced output
-```
-[1] 0.1132225
-[1] 0.1425962
-```
+
+{% include fragments_ch1/igapfill2.txt %}
+
 ![Gap filling](img/img_ch1/igapfill3.svg)
 
 ### Fragment 3.4.1 (Weighted Cadzow approximation)
@@ -193,5 +187,5 @@ Warning: this example takes a lot of computational time.
 
 ![Trend](img/img_ch1/sunspots.svg)
 ![Tracking](img/img_ch1/sunspots_per_track.svg)
-![Hmat](img/img_ch1/sunspots_change22.svg)
-![Hmat](img/img_ch1/sunspots_change44.svg)
+
+| ![Hmat](img/img_ch1/sunspots_change22.svg) | ![Hmat](img/img_ch1/sunspots_change44.svg) |

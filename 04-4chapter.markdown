@@ -8,12 +8,7 @@ tags: codeexample
 
 # Chapter 4: SSA for multivariate time series
 
-Here you can find code listings in `R` language from the corresponding chapter of the book.
-
-## Contents
-{: .no_toc}
-1. TOC
-{:toc}
+{% include header.txt %}
 
 ### Fragment 4.1.1 (LRRs and roots of characteristic polynomials)
 

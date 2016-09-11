@@ -27,12 +27,12 @@ fv <- vforecast(s, groups = list(trend = c(1:r)),
                 len = len, only.new = FALSE)
 ftr <- rforecast(st, groups = list(trend = c(1:r)), 
                  len = len, only.new = FALSE)
-sqrt(mean((window(fr, start = 62) - 
-             window(series, start = 62))^2))
-sqrt(mean((window(fv, start = 62) - 
-             window(series, start = 62))^2))
-sqrt(mean((window(ftr, start = 62) - 
-             window(series, start = 62))^2))
+print(sqrt(mean((window(fr, start = 62) - 
+             window(series, start = 62))^2)))
+print(sqrt(mean((window(fv, start = 62) - 
+             window(series, start = 62))^2)))
+print(sqrt(mean((window(ftr, start = 62) - 
+             window(series, start = 62))^2)))
 theme <- simpleTheme(col = c("black", "red", "blue", 
                              "green", "violet"),
                      lwd = c(1, 1, 2, 2, 1),

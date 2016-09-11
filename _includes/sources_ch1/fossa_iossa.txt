@@ -15,17 +15,17 @@ p1 <- plot(s, type = "vectors", idx = 1:4, layout = c(4, 1),
 fos <- fossa(s, nested.groups = list(1:2, 3:4), gamma = 10, 
              normalize = FALSE)
 #the total percent is equal to 100%
-sum(fos$sigma^2) / sum(s$sigma^2) * 100 
+print(sum(fos$sigma^2) / sum(s$sigma^2) * 100)
 p2 <- plot(fos, type = "vectors", idx = 1:4, layout = c(4, 1),
            main = "Eigenvectors, SSA with derivatives")
 ios1 <- iossa(s, nested.groups = list(1:2, 3:4), maxiter = 1)
 #the total percent is not equal to 100%
-sum(ios1$sigma^2) / sum(s$sigma^2) * 100 
+print(sum(ios1$sigma^2) / sum(s$sigma^2) * 100)
 p3 <- plot(ios1, type = "vectors", idx = 1:4, layout = c(4, 1),
            main = "Eigenvectors, Iterative O-SSA, 1 iter")
 ios2 <- iossa(ios1, nested.groups = list(1:2, 3:4), maxiter = 1)
 #the total percent is not equal to 100%
-sum(ios2$sigma^2) / sum(s$sigma^2) * 100 
+print(sum(ios2$sigma^2) / sum(s$sigma^2) * 100)
 p4 <- plot(ios2, type = "vectors", idx = 1:4, layout = c(4, 1),
            main = "Eigenvectors, Iterative O-SSA, 2 iter")
 plot(p1, split = c(1, 1, 1, 4), more = TRUE)

@@ -1,4 +1,29 @@
 library(Rssa)
+library(lattice)
+
+# lattice.options(default.theme =
+#                 modifyList(standard.theme("svg", color = TRUE),
+#                            list(
+#                              fontsize = list(text = 12, points = 5),
+#                              layout.heights =
+#                                 list(top.padding = 0.1,
+#                                      key.axis.padding = 0.25,
+#                                      axis.xlab.padding = 0.1,
+#                                      xlab.key.padding = 0.1,
+#                                      key.sub.padding = 0.25,
+#                                      bottom.padding = 0.1),
+#                                 layout.widths =
+#                                 list(left.padding = 0.1,
+#                                      key.ylab.padding = 0.1,
+#                                      ylab.axis.padding = 0.1,
+#                                      axis.key.padding = 0.1,
+#                                      right.padding = 1))))
+
+trellis.par.set("text", 12)
+trellis.par.set("points", 5)
+# trellis.par.set(strip.background=list(col="white"))
+# trellis.par.get("fontsize")
+
 
 parestimate <- function(...) {
     result <- Rssa::parestimate(...)
@@ -12,14 +37,20 @@ pdf <- function(...) {
     params <- list(...)
     name <- gsub("\\.pdf", ".svg", params[[1]])
     clean_name <- regex.extract.group("\\.\\./img.*/(.*)\\.svg", name)[[1]]
-    width <- 4
-    height <- 6
-    if (!clean_name %in% fixed_size) {
-        if ("width" %in% names(params))
-            width <- params$width * 1.6
-        if ("height" %in% names(params))
-            height <- params$height * 1.6
+    width <- 8
+    height <- 5
+    
+    if ("width" %in% names(params))
+        width <- params$width * 1.6
+    if ("height" %in% names(params))
+        height <- params$height * 1.6
+    
+    if (clean_name %in% fixed_size) {
+        scale <- min(5 / height, 8 / width)
+        width <- width * scale
+        height <- height * scale
     }
+    
     par(cex = 2)
     
     if (clean_name %in% use_trueraster_plot){

@@ -1,0 +1,10 @@
+Here you can find code listings in `R` language from the corresponding chapter of the book.
+
+You need to load `Rssa` with `lattice` to run these examples. Packages with corresponding data
+must be loaded too.
+{:.alert .alert-info}
+
+## Contents
+{: .no_toc}
+1. TOC
+{:toc}

@@ -8,12 +8,7 @@ tags: codeexample
 
 # Chapter 2: SSA analysis of one-dimensional time series, Section 2.8
 
-Here you can find code listings in `R` language from the corresponding chapter of the book.
-
-## Contents
-{: .no_toc}
-1. TOC
-{:toc}
+{% include header.txt %}
 
 ### Fragment 2.8.1 (‘Tree rings’: frequency decomposition)
 

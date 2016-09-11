@@ -8,12 +8,7 @@ tags: codeexample
 
 # Chapter 5: Image processing
 
-Here you can find code listings in `R` language from the corresponding chapter of the book.
-
-## Contents
-{: .no_toc}
-1. TOC
-{:toc}
+{% include header.txt %}
 
 ### Fragments 5.1.1 ('Mars': Input), 5.1.2 ('Mars': Decomposition with `svd.method = "svd"`), 5.1.3 ('Mars': Decomposition with `svd.method = "eigen"`)
 
@@ -62,7 +57,7 @@ Here you can find code listings in `R` language from the corresponding chapter o
 
 #### Produced output
 
-![Mask](img/img_ch2d/Mars_shaped_mask_0.svg) ![Mask](img/img_ch2d/Mars_shaped_mask_1.svg) ![Mask](img/img_ch2d/Mars_shaped_mask_res.svg)
+| ![Mask](img/img_ch2d/Mars_shaped_mask_0.svg) | ![Mask](img/img_ch2d/Mars_shaped_mask_1.svg) | ![Mask](img/img_ch2d/Mars_shaped_mask_res.svg) |
 
 {% include fragments_ch2d/Mars_shaped_dec.txt %}
 
@@ -81,8 +76,8 @@ Here you can find code listings in `R` language from the corresponding chapter o
 #### Produced output
 
 ![Eigenarrays](img/img_ch2d/Mars_shaped_ident_psi.svg)
-![Wcor](img/img_ch2d/Mars_shaped_ident_wcor.svg)
-![Contributions](img/img_ch2d/Mars_shaped_eval.svg)
+
+| ![Wcor](img/img_ch2d/Mars_shaped_ident_wcor.svg) | ![Contributions](img/img_ch2d/Mars_shaped_eval.svg) |
 
 ### Fragment 5.2.5 ('Mars': Improvement by DerivSSA)
 
@@ -91,8 +86,8 @@ Here you can find code listings in `R` language from the corresponding chapter o
 #### Produced output
 
 ![Eigenarrays](img/img_ch2d/Mars_shaped_fossa_ident_psi.svg)
-![Wcor](img/img_ch2d/Mars_shaped_fossa_ident_wcor.svg)
-![Contributions](img/img_ch2d/Mars_shaped_fossa_eval.svg)
+
+| ![Wcor](img/img_ch2d/Mars_shaped_fossa_ident_wcor.svg) | ![Contributions](img/img_ch2d/Mars_shaped_fossa_eval.svg) |
 
 ### Fragment 5.3.1 ('Mars': Parameter estimation with 2D-ESPRIT)
 
@@ -145,9 +140,7 @@ Here you can find code listings in `R` language from the corresponding chapter o
 
 #### Produced output
 
-![Reconstruction](img/img_ch2d/brecon_rec_cumrest1_dft.svg)
-![Reconstruction](img/img_ch2d/brecon_rec_cumrest2_dft.svg)
-![Reconstruction](img/img_ch2d/brecon_rec_cumrest3_dft.svg)
+| ![Reconstruction](img/img_ch2d/brecon_rec_cumrest1_dft.svg) | ![Reconstruction](img/img_ch2d/brecon_rec_cumrest2_dft.svg) | ![Reconstruction](img/img_ch2d/brecon_rec_cumrest3_dft.svg) |
 
 ### Fragments 5.4.6 ('Kruppel': Analysis of data given on a cylinder)
 
@@ -164,8 +157,8 @@ Here you can find code listings in `R` language from the corresponding chapter o
 
 #### Produced output
 
-![Original](img/img_ch2d/image_color.svg)
-![Smooth](img/img_ch2d/image_rec_color.svg)
+| ![Original](img/img_ch2d/image_color.svg) | ![Smooth](img/img_ch2d/image_rec_color.svg) |
+
 ![Eigenarrays](img/img_ch2d/image_eigen.svg)
 ![Channels](img/img_ch2d/image_res.svg)
 

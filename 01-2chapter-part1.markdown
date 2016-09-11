@@ -8,12 +8,7 @@ tags: codeexample
 
 # Chapter 2: SSA analysis of one-dimensional time series, Sections 2.1 &mdash; 2.7
 
-Here you can find code listings in `R` language from the corresponding chapter of the book.
-
-## Contents
-{: .no_toc}
-1. TOC
-{:toc}
+{% include header.txt %}
 
 ### Fragments 2.1.1 (‘Australian Wines’: Input) and 2.1.2 (‘FORT’: Reconstruction)
 
@@ -108,6 +103,8 @@ Warning: this example takes a lot of computational time.
 ![Norms](img/img_ch1/fossa_iossa_eval.svg)
 ![Eigenvectors](img/img_ch1/fossa_iossa_evec.svg)
 ![Reconstruction](img/img_ch1/fossa_iossa_rec.svg)
+
+{% include fragments_ch1/fossa_iossa.txt %}
 
 ```
 1: В .contribution(x, idx, ...) :
