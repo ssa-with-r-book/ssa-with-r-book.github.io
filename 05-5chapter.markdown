@@ -149,7 +149,7 @@ tags: codeexample
 #### Produced output
 
 ![Factor vectors](img/img_ch2d/circular_factor.svg)
-![Reconstruction](img/img_ch2d/circular_reconstructed.svg)
+![Reconstruction](img/img_ch2d/Circular_reconstructed.svg)
 
 ### Fragments 5.4.7 ('Monet': decomposition by multivariate 2D-SSA)
 
