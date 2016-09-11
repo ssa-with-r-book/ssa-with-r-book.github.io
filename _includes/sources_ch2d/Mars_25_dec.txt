@@ -1,0 +1,4 @@
+{% highlight r %}
+print(system.time(s.Mars.25 <- ssa(Mars, kind = "2d-ssa", 
+                                   L = c(25, 25))))
+{% endhighlight %}

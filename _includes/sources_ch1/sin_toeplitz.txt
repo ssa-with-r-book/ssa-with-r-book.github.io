@@ -1,0 +1,19 @@
+{% highlight r %}
+N <- 100
+sigma <- 0.5
+set.seed(1)
+F <- sin (2 * pi * (1:N) / 7) + sigma * rnorm(N)
+Fcenter <- F - mean(F)
+st <- ssa(Fcenter, L = 50, kind = "toeplitz-ssa")
+s <- ssa(F, L = 50, kind = "1d-ssa")
+p <- plot(s, type = "vectors", idx = 1:4, layout = c(4, 1))
+pt <- plot(st, type = "vectors", idx = 1:4, layout = c(4, 1))
+plot(pt, split = c(1, 1, 1, 2), more = TRUE)
+plot(p, split = c(1, 2, 1, 2), more = FALSE)
+pt <- plot(reconstruct(st, groups = list(1:2)), 
+           plot.method = "xyplot", layout = c(3, 1))
+p <- plot(reconstruct(s, groups = list(1:2)), 
+          plot.method = "xyplot", layout = c(3, 1))
+plot(pt, split = c(1, 1, 1, 2), more = TRUE)
+plot(p, split = c(1, 2, 1, 2), more = FALSE)
+{% endhighlight %}

@@ -1,0 +1,28 @@
+{% highlight r %}
+#Estimation by means of the limit of Cadzow iterations
+parc <- parestimate(sc, groups = list(1:rank), 
+                    method = "esprit-ls")
+print(parc)
+oc <- order(abs(parc$periods), decreasing = TRUE)
+periodsc <- (parc$periods[o])
+modulic <- parc$moduli[o]
+lenc <- rank
+varsc <- matrix(nrow = lenc, ncol = rank)
+for (i in 1:rank) {
+  if (periodsc[i] == Inf)
+    varsc[, i] <- modulic[i]^(1:lenc)
+  else if (periodsc[i] == 2)
+    varsc[, i] <- (-modulic[i])^(1:lenc)
+  else if (periodsc[i] > 0)
+    varsc[, i] <- 
+      modulic[i]^(1:lenc) * sin(2 * pi * (1:lenc) / periodsc[i])
+  else
+    varsc[, i] <- 
+      modulic[i]^(1:lenc) * cos(2 * pi * (1:lenc) / periodsc[i])
+}
+lm.c <- lm(rc[1:lenc] ~ 0 + ., data = data.frame(varsc))
+#lm.c
+coefs.c <- coef(lm.c)
+print(round(coefs.c[1:6], digits = 2))
+print(round(coefs.c[7:11], digits = 2))
+{% endhighlight %}

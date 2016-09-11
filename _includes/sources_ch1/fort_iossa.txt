@@ -1,0 +1,26 @@
+{% highlight r %}
+data("AustralianWine")
+Nfull <- 120
+wine <- window(AustralianWine,
+               end = time(AustralianWine)[Nfull])
+fort_sh <- window(wine[, "Fortified"],
+                  start = c(1982, 6), end = c(1985, 12))
+ss_sh <- ssa(fort_sh, L = 18)
+res_ssa_sh <- reconstruct(ss_sh, groups = list(1, 2:7))
+iss_sh <- iossa(ss_sh, nested.groups = list(1, 2:7),
+                kappa = 0, maxiter = 1, tol = 1e-5)
+res_issa_sh <- reconstruct(iss_sh, groups = iss_sh$iossa.groups)
+theme <- simpleTheme(col = c("blue", "red", "black"),
+                     lwd = c(1, 2, 1),
+                     lty = c("solid", "solid", "dashed"))
+xyplot(cbind(res_ssa_sh$F1, res_issa_sh$F1, wine[, "Fortified"]),
+       superpose = TRUE,
+       xlab = "", ylab = "", type = "l", lwd = c(1, 2, 1), 
+       col = c("blue", "red", "black"),
+       auto.key = list(text = c("Basic SSA trend",
+                                "Iterative O-SSA trend",
+                                "Full series"),
+                       type = c("l", "l", "l"),
+                       lines = TRUE, points = FALSE),
+       par.settings = theme)
+{% endhighlight %}

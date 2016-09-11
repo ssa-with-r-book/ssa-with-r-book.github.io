@@ -1,0 +1,27 @@
+{% highlight r %}
+wineFortRose <- AustralianWine[, c("Fortified", "Rose")]
+L <- 84
+wineFortRose <- AustralianWine[, c("Fortified", "Rose")]
+norm.wineFortRosen <- 
+  sqrt(colMeans(wineFortRose^2, na.rm = TRUE))
+wineFortRosen <- 
+  sweep(wineFortRose, 2, norm.wineFortRosen, "/")
+s.wineFortRosen <- ssa(wineFortRosen, L = L, kind = "mssa")
+g.wineFortRosen <- 
+  gapfill(s.wineFortRosen, groups = list(1:14))
+ig.wineFortRosen <- 
+  igapfill(s.wineFortRosen, groups = list(1:14))
+ig.wineFortRose <- 
+  norm.wineFortRosen["Rose"] * ig.wineFortRosen
+g.wineFortRose <- 
+  norm.wineFortRosen["Rose"] * g.wineFortRosen
+xyplot(AustralianWine[100:187, "Rose"] + 
+         ig.wineFortRose[100:187, "Rose"] +
+         g.wineFortRose[100:187, "Rose"] ~
+         time(AustralianWine)[100:187],
+       type = "l", xlab = "Time", ylab = "Rose", 
+       lty = c(1, 2, 1), lwd = c(2, 1, 1),
+       auto.key = list(text = c("`Rose'",
+                                "Iterative gap filling",
+                                "Subspace-based gap-filling")))
+{% endhighlight %}

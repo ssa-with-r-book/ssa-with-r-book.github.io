@@ -1,0 +1,28 @@
+{% highlight r %}
+#Estimation by means of the first iteration of Cadzow
+#iterations (SSA)
+par <- parestimate(s0, groups = list(1:rank), 
+                   method = "esprit-ls")
+print(par)
+o <- order(abs(par$periods), decreasing = TRUE)
+periods <- (par$periods[o])
+moduli <- par$moduli[o]
+len <- rank
+vars <- matrix(nrow = len, ncol = rank)
+for (i in 1:rank) {
+  if (periods[i] == Inf)
+    vars[, i] <- moduli[i]^(1:len)
+  else if (periods[i] == 2)
+    vars[, i] <- (-moduli[i])^(1:len)
+  else if (periods[i] > 0)
+    vars[, i] <- 
+      moduli[i]^(1:len) * sin(2 * pi * (1:len) / periods[i])
+  else
+    vars[, i] <- 
+      moduli[i]^(1:len) * cos(2 * pi * (1:len) / periods[i])
+}
+lm0 <- lm(r0[1:len] ~ 0 + ., data = data.frame(vars))
+coefs0 <- coef(lm0)
+print(round(coefs0[1:6], digits = 2))
+print(round(coefs0[7:11], digits = 2))
+{% endhighlight %}

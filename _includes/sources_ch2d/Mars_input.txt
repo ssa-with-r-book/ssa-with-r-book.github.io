@@ -1,0 +1,4 @@
+{% highlight r %}
+library("Rssa")
+data("Mars")
+{% endhighlight %}

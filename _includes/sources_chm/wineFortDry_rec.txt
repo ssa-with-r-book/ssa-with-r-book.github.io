@@ -1,0 +1,11 @@
+{% highlight r %}
+wineFortDry <- wine[, c("Fortified", "Drywhite")]
+L <- 84
+s.wineFortDry <- ssa(wineFortDry, L = L, kind = "mssa")
+r.wineFortDry <- reconstruct(s.wineFortDry,
+                             groups = list(Trend = c(1, 6),
+                                Seasonality = c(2:5, 7:12)))
+plot(r.wineFortDry, add.residuals = FALSE,
+     plot.method = "xyplot",
+     superpose = TRUE, auto.key = list(columns = 3))
+{% endhighlight %}

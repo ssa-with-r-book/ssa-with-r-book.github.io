@@ -1,0 +1,64 @@
+{% highlight r %}
+data("AustralianWine")
+wine <- window(AustralianWine, end = time(AustralianWine)[174])
+ser0 <- wine[, "Total"]
+Q <- 66
+l <- length(ser0)
+ser <- window(ser0, end = time(ser0)[l-Q])
+include <- min(1000, l - Q)
+L <- 48
+s <- ssa(ser, L = L)
+plot(wcor(s, groups = 1:min(nu(s), 50)),
+     scales = list(at = c(10, 20, 30, 40, 50)))
+set.seed(1)
+R <- 100
+noise <- matrix(rnorm(length(ser) * R), nrow = length(ser))
+range <- 1:30
+err.pert <- numeric(length(range))
+err <- numeric(length(range))
+k <- 1
+for (num.comp in range) {
+  bf0 <- forecast(s, groups = list(1:num.comp), 
+                  method = "bootstrap-recurrent", 
+                  len = Q, R = R, level = 0.9)
+  
+  bf0.pert <- perturbation(s, noise, R, Q, num.comp, L, 
+                           level = 0.9, bf0)
+  err.pert[k] <- sqrt(mean((bf0.pert$upper - bf0.pert$lower)^2))
+  err[k] <- sqrt(mean((bf0$upper - bf0$lower)^2))
+  k <- k + 1
+}
+bf0.pert1 <- perturbation(s, noise, R, Q, 1, L, 
+                          level = 0.9, bf0)
+plot(bf0.pert1, include = include, shadecols = "green",
+     main = paste("Perturbed SSA forecast, 1 component"))
+bf0.pert12 <- perturbation(s, noise, R, Q, 12, L, 
+                           level = 0.9, bf0)
+plot(bf0.pert12, include = include, shadecols = "green",
+     main = paste("Perturbed SSA forecast, 12 components"))
+bf0.pert14 <- perturbation(s, noise, R, Q, 14, L, 
+                           level = 0.9, bf0)
+plot(bf0.pert14, include = include, shadecols = "green",
+     main = paste("Perturbed SSA forecast, 14 components"))
+start <- 48
+theme <- simpleTheme(col = c("black","red","blue"),
+                     lwd = c(2, 1, 2),
+                     lty = c("solid", "solid", "solid"))
+xyplot(cbind(window(ser0, start = c(1984, 1)),
+             bf0.pert12$mean,
+             bf0.pert14$mean),
+       superpose = TRUE, type = "l", ylab = NULL, xlab = NULL,
+       auto.key = list(text = c("wine, total", 
+                                "forecast, ET1-12",
+                                "forecast, ET1-14"),
+                       type = c("l", "l", "l"),
+                       lines = TRUE, points = FALSE), 
+       par.settings = theme)
+xyplot(err + err.pert ~ range, type = "l", 
+       ylab = NULL, xlab = NULL,
+       auto.key = list(text = c("Bootstrap errors", 
+                                'Perturbation errors'),
+                       type = c("l", "l"),
+                       lines = TRUE, points = FALSE), 
+       scales = list(y = list(log = TRUE)))
+{% endhighlight %}

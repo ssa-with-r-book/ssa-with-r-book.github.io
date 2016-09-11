@@ -1,0 +1,39 @@
+{% highlight r %}
+n <- 30
+hotel.2years <- window(hotel, end = time(hotel)[n])
+s <- ssa(hotel.2years, L = 12)
+ios <- iossa(s, nested.groups = list(1, 2:5))
+r <- reconstruct(ios, groups = list(trend = 1))
+hotel.2years.data <- data.frame(x = 1:n, y = hotel.2years)
+fit.2years <- lm(y ~ x, data = hotel.2years.data)
+fit.2years.continued <- predict(fit.2years,
+                                newdata = data.frame(x = 1:len)) 
+hotel.data <- data.frame(x = 1:len, y = hotel)
+fit <- lm(y ~ x, data = hotel.data)
+fit.rec <- lm(r$trend ~ x, data = hotel.2years.data)
+fit.rec.continued <- predict(fit.rec,
+                             newdata = data.frame(x = 1:len)) 
+xyplot(cbind(hotel,
+             predict(fit),
+             fit.2years.continued,
+             ts(predict(fit.2years),
+                start = c(1963, 1), freq = 12),
+             fit.rec.continued,
+             ts(predict(fit.rec),
+                start = c(1963, 1), freq = 12)),
+       superpose = TRUE,
+       type = "l", ylab = "",
+       lty = c(1, 2, 1, 1, 1, 1), 
+       lwd = c(1, 2, 1, 5, 1, 5),
+       col = c("black", "green", "red", "red",
+               "blue", "blue"),
+       auto.key =
+           list(text = c("Original series",
+                         "General linear trend",
+                         "Linear regression, forecasted",
+                         "Linear regression",
+                         "Iterative O-SSA",
+                         "Iterative O-SSA, forecasted"),
+                type = c("l", "l", "l", "l", "l", "l"),
+                lines = TRUE, points = FALSE))
+{% endhighlight %}

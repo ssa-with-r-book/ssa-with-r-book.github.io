@@ -1,0 +1,55 @@
+{% highlight r %}
+N <- 71
+sigma <- 5
+Ls <- c(12, 24, 36, 48, 60)
+len <- 24
+signal1 <- 30 * cos(2*pi * (1:(N + len)) / 12)
+signal2 <- 30 * cos(2*pi * (1:(N + len)) / 12 + pi / 4)
+signal <- cbind(signal1, signal2)
+R <- 10
+mssa.errors <- function(Ls) {
+  f1 <- signal1[1:N] + rnorm(N, sd = sigma)
+  f2 <- signal2[1:N] + rnorm(N, sd = sigma)
+  f <- cbind(f1, f2)
+  err.rec <- numeric(length(Ls)); names(err.rec) <- Ls
+  err.for <- numeric(length(Ls)); names(err.for) <- Ls
+  for (l in seq_along(Ls)) {
+    L <- Ls[l]
+    s <- ssa(f, L = L, kind = "mssa")
+    rec <- reconstruct(s, groups = list(1:2))[[1]]
+    err.rec[l] <- mean((rec - signal[1:N, ])^2)
+    pred <- vforecast(s, groups = list(1:2), direction = "row",
+                      len = len, drop = TRUE)
+    err.for[l] <- mean((pred - signal[-(1:N), ])^2)
+  }
+  list(Reconstruction = err.rec, Forecast = err.for)
+}
+mres <- replicate(R, mssa.errors(Ls))
+err.rec <- rowMeans(simplify2array(mres["Reconstruction", ]))
+err.for <- rowMeans(simplify2array(mres["Forecast", ]))
+print(err.rec)
+print(err.for)
+signal <- signal1 + 1i*signal2
+cssa.errors <- function(Ls) {
+  f1 <- signal1[1:N] + rnorm(N, sd = sigma)
+  f2 <- signal2[1:N] + rnorm(N, sd = sigma)
+  f <- f1 + 1i*f2
+  err.rec <- numeric(length(Ls)); names(err.rec) <- Ls
+  err.for <- numeric(length(Ls)); names(err.for) <- Ls
+  for (l in seq_along(Ls)) {
+    L <- Ls[l]
+    s <- ssa(f, L = L, kind = "cssa", svd.method = "svd")
+    rec <- reconstruct(s, groups = list(1:2))[[1]]
+    err.rec[l] <- mean(abs(rec - signal[1:N])^2)
+    pred <- vforecast(s, groups = list(1:2), len = len,
+                      drop = TRUE)
+    err.for[l] <- mean(abs(pred - signal[-(1:N)])^2)
+  }
+  list(Reconstruction = err.rec, Forecast = err.for)
+}
+cres <- replicate(R, cssa.errors(Ls))
+err.rec <- rowMeans(simplify2array(cres["Reconstruction", ]))
+err.for <- rowMeans(simplify2array(cres["Forecast", ]))
+print(err.rec)
+print(err.for)
+{% endhighlight %}

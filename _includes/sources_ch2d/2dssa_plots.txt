@@ -1,0 +1,10 @@
+{% highlight r %}
+plot2d <- function(x) {
+  regions <- list(col = colorRampPalette(grey(c(0, 1))));
+  levelplot(t(x[seq(nrow(x), 1, -1), ]), aspect = "iso",
+            par.settings = list(regions = regions), 
+            colorkey = FALSE, 
+            scales = list(draw = FALSE, relation = "same"), 
+            xlab = "", ylab = "")
+}
+{% endhighlight %}

@@ -1,0 +1,5 @@
+{% highlight r %}
+pe.Mars.shaped <- parestimate(s.Mars.shaped, 
+                              r.Mars.shaped.groups)
+print(pe.Mars.shaped)
+{% endhighlight %}

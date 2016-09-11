@@ -1,0 +1,10 @@
+{% highlight r %}
+s.Mars.shaped.deriv <-
+  fossa(s.Mars.shaped, nested.groups = list(1:30))
+plot(s.Mars.shaped.deriv, type = "vectors", idx = 1:30, 
+     fill.color = "yellow", cuts = 255, layout = c(10, 3), 
+     plot.contrib = FALSE)
+plot(wcor(s.Mars.shaped.deriv, groups = 1:30), 
+     scales = list(at = c(10, 20, 30)))
+plot(s.Mars.shaped.deriv)
+{% endhighlight %}

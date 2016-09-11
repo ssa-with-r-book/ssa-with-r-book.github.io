@@ -1,0 +1,9 @@
+{% highlight r %}
+s <- ssa(EuStockMarkets, kind = "mssa")
+r <- reconstruct(s, groups = list(Trend = 1:2))
+plot(r, plot.method = "xyplot", superpose = TRUE,
+     add.residuals = FALSE,
+     auto.key = list(columns = 2),
+     col = c("blue", "green", "red", "violet"),
+     lty = c(rep(1, 4), rep(2, 4)))
+{% endhighlight %}

@@ -1,0 +1,26 @@
+{% highlight r %}
+perturbation <- 
+  function(s, noise, R, Qfor, num.comp, L, level, template) {
+  r <- reconstruct(s, groups = list(1:num.comp))
+  stopifnot(length(r) == 1)
+  delta <- sd(residuals(r))
+  res <- matrix(nrow = Qfor, ncol = R)
+  ser <- s$F; attributes(ser) <- s$Fattr
+  for (j in 1:R) {
+    si <- ssa(ser + delta * noise[, j], L = L)
+    res[, j] <- rforecast(si, groups = list(1:num.comp), 
+                         len = Qfor)
+  }
+  cf <- apply(res, 1, quantile, 
+              probs = c((1 - level) / 2, (1 + level) / 2))
+  out <- template
+  out$x[] <- ser
+  out$fitted[] <- r[[1]]
+  out$residuals[] <- residuals(r)
+  out$lower[] <- cf[1, ]
+  out$upper[] <- cf[2, ]
+  out$level[] <- 100 * level
+  out$mean[] <- rowMeans(res)
+  out
+}
+{% endhighlight %}

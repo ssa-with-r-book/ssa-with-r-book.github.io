@@ -1,0 +1,24 @@
+{% highlight r %}
+L <- 163
+norm.wine <- sqrt(colMeans(wine[, -1]^2))
+winen <- sweep(wine[, -1], 2, norm.wine, "/")
+s.winen <- ssa(winen, L = L, kind = "mssa")
+r.winen <- reconstruct(s.winen,
+                       groups = list(Trend = c(1, 2, 5),
+                                  Seasonality = c(3:4, 6:12)))
+plot(r.winen, add.residuals = FALSE,
+     plot.method = "xyplot",
+     slice = list(component = 1), 
+     screens = list(colnames(winen)),
+     col = 
+       c("blue", "green", "red", "violet", "black", "green4"),
+     lty = rep(c(1, 2), each = 6),
+     scales = list(y = list(draw = FALSE)),
+     layout = c(1, 6))
+plot(r.winen, plot.method = "xyplot", add.original = FALSE,
+     add.residuals = FALSE, slice = list(component = 2),
+     col = 
+       c("blue", "green", "red", "violet", "black", "green4"),
+     scales = list(y = list(draw = FALSE)),
+     layout = c(1, 6))
+{% endhighlight %}

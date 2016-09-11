@@ -1,0 +1,7 @@
+{% highlight r %}
+r.Mars.shaped.groups <- list(Noise = c(7, 8, 9, 10))
+r.Mars.shaped <- reconstruct(s.Mars.shaped,
+                    groups = r.Mars.shaped.groups)
+plot(r.Mars.shaped, cuts = 255, layout = c(3, 1), 
+     fill.color = "yellow")
+{% endhighlight %}

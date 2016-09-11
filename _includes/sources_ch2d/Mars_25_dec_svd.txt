@@ -1,0 +1,3 @@
+{% highlight r %}
+# ssa(Mars, kind = "2d-ssa", L = c(25, 25), svd.method = "svd")
+{% endhighlight %}

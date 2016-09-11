@@ -1,0 +1,9 @@
+{% highlight r %}
+centered.mod.fft <- function(x) {
+  N <- dim(x)
+  shift.exp <- exp(2i*pi * floor(N/2) / N)
+  shift1 <- shift.exp[1]^(0:(N[1] - 1))
+  shift2 <- shift.exp[2]^(0:(N[2] - 1))
+  Mod(t(mvfft(t(mvfft(outer(shift1, shift2) * x)))))
+}
+{% endhighlight %}

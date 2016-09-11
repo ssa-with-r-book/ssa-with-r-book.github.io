@@ -1,0 +1,20 @@
+{% highlight r %}
+L <- 240
+elec_sa <- elec - fi
+s_sa <- ssa(window(elec_sa, end = c(1993, 8)), L = L)
+f_sa <- rforecast(s_sa, groups = list(trend = c(1:13)), 
+                  len = len, only.new = FALSE)
+theme <- simpleTheme(col = c("black", "red", "green"),
+                     lwd = c(1, 2, 2),
+                     lty = c("solid", "solid", "solid"))
+xyplot(cbind(window(elec, start = c(1985, 12)),
+             window(fi, start = c(1985, 12), end = c(1993, 8)),
+             window(fi, start = c(1993, 9)) + 
+               window(f_sa, start = c(1993, 9))),
+       superpose = TRUE, type = "l", ylab = NULL, xlab = NULL,
+       auto.key = list(text = c("original", 'trend', 
+                                'forecast'),
+                       type = c("l", "l", "l"),
+                       lines = TRUE, points = FALSE),
+       par.settings = theme)
+{% endhighlight %}

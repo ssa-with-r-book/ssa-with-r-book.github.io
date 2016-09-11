@@ -1,0 +1,30 @@
+{% highlight r %}
+data("sunspot2")
+s <- ssa(sunspot2, L = 11)
+r <- reconstruct(s, groups = list(Trend = 1))
+plot(r, plot.method = "xyplot", superpose = TRUE)
+sun.oscill <- residuals(r)
+N <- length(sun.oscill)
+rank <- 2
+periods <- function(M, L) {
+  ts(sapply(1:(N - M),
+            function (i) {
+              s <- ssa(sun.oscill[i:(i + M - 1)], L = L)
+              par <- parestimate(s, groups = list(c(1:rank)), 
+                                 method = "esprit-ls")
+              abs(par$periods[1])
+            }),
+     start = time(sunspot2)[M + 1], delta = 1)
+}
+per22 <- periods(22, 11)
+per44 <- periods(44, 22)
+xyplot(cbind(per22, per44), type = "l", xlim = c(1677, 2040),
+       strip = strip.custom(factor.levels = 
+                              c("B = 22", "B = 44")))
+M <- 22; L <- M / 2
+hm <- hmatr(sun.oscill, B = M, T = M, L = L, neig = rank)
+plot(hm)
+M <- 44; L <- M / 2
+hm <- hmatr(sun.oscill, B = M, T = M, L = L, neig = rank)
+plot(hm)
+{% endhighlight %}

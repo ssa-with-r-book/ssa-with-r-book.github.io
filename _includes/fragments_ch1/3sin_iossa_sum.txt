@@ -1,0 +1,33 @@
+```
+[[1]]
+[1] 3 4
+
+[[2]]
+[1] 5 6
+
+
+Call:
+iossa.ssa(x = s, nested.groups = list(3:4, 5:6), maxiter = 1000)
+
+Series length: 100,	Window length: 50,	SVD method: eigen
+Special triples:  0
+
+Computed:
+Eigenvalues: 50,	Eigenvectors: 50,	Factor vectors: 6
+
+Precached: 0 elementary series (0 MiB)
+
+Overall memory consumption (estimate): 0.0352 MiB
+
+Iterative O-SSA result:
+	Converged:             yes
+	Iterations:            243
+	Initial mean(tau):     0.1032
+	Initial tau:           0.0007976, 0.2055299
+	I. O-SSA mean(tau):    0.0004452
+	I. O-SSA tau:          0.0006709, 0.0002196
+	Initial max wcor:      0.02442
+	I. O-SSA max wcor:     0.06986
+	I. O-SSA max owcor:    0.0732
+
+```

@@ -1,0 +1,22 @@
+{% highlight r %}
+library("ssabook")
+data("oilproduction")
+s <- ssa(oilproduction, L = 120)
+plot(s, type = "vectors", vectors = "factor", idx = 1:12)
+g0 <- grouping.auto(s, base = "series", 
+                    freq.bins = list(Tendency = 1/240, 
+                                     Trend = 1/24), 
+                    threshold = 0.1)
+plot(g0, order = TRUE, type = "b")
+contrib <- attr(g0, "contributions")[, 2]
+print(thr <- sort(contrib, decreasing = TRUE)[9])
+g <- grouping.auto(s, base = "series", 
+                   freq.bins = list(Tendency = 1/240, 
+                                    Trend = 1/24), 
+                   threshold = thr)
+print(g[[1]])
+print(g[[2]])
+plot(reconstruct(s, groups = g), 
+     add.residuals = FALSE, 
+     plot.method = "xyplot", superpose = TRUE)
+{% endhighlight %}

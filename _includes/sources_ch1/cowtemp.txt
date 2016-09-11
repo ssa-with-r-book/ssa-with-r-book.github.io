@@ -1,0 +1,52 @@
+{% highlight r %}
+data(cowtemp, package = "fma")
+series <- cowtemp
+N <- length(series)
+cut <- 14
+future <- 21
+len <- cut + future
+r <- 1
+L <- 28
+Lt <- 14
+s <- ssa(window(series, end = N - cut), L = L)
+parestimate(s, groups = list(trend = c(1:r)), 
+            method = "esprit-ls")$moduli
+roots(lrr(s, groups = list(trend = c(1:r))))[1]
+rec <- reconstruct(s, groups = list(1:r))
+st <- ssa(window(series, end = N - cut), 
+          kind = "toeplitz-ssa", L = Lt)
+parestimate(st, groups = list(trend = c(1:r)), 
+            method = "esprit-ls")$moduli
+parestimate(st, groups = list(trend = c(1:r)), 
+            normalize.roots = FALSE,
+            method = "esprit-ls")$moduli
+roots(lrr(st, groups = list(trend = c(1:r))))[1]
+fr <- rforecast(s, groups = list(trend = c(1:r)), 
+                len = len, only.new = TRUE)
+fv <- vforecast(s, groups = list(trend = c(1:r)), 
+                len = len, only.new = FALSE)
+ftr <- rforecast(st, groups = list(trend = c(1:r)), 
+                 len = len, only.new = FALSE)
+sqrt(mean((window(fr, start = 62) - 
+             window(series, start = 62))^2))
+sqrt(mean((window(fv, start = 62) - 
+             window(series, start = 62))^2))
+sqrt(mean((window(ftr, start = 62) - 
+             window(series, start = 62))^2))
+theme <- simpleTheme(col = c("black", "red", "blue", 
+                             "green", "violet"),
+                     lwd = c(1, 1, 2, 2, 1),
+                     lty = c("solid", "solid", "solid", 
+                             "dashed", "solid"))
+future.NA <- rep(NA, future)
+xyplot(cbind(series, rec$F1, fr, fv, ftr),
+       superpose = TRUE, type = "l", ylab = NULL, xlab = NULL,
+       auto.key = list(text = c("original series", 
+                                'reconstructed series', 
+                                'recurrent forecast', 
+                                'vector forecast', 
+                                'recurrent Toeplitz forecast'),
+                       type = c("l", "l", "l", "l", "l"),
+                       lines = TRUE, points = FALSE),
+       par.settings = theme)
+{% endhighlight %}

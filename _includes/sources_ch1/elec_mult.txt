@@ -1,0 +1,14 @@
+{% highlight r %}
+library(fma)
+elec.log <- log(elec)
+Time <- time(elec)
+s <- ssa(elec, L = 12)
+r <- reconstruct(s, groups = list(trend = c(1)))
+sl <- ssa(elec.log, L = 12)
+rl <- reconstruct(sl, groups = list(trend = c(1)))
+xyplot(elec + exp(as.vector(rl$trend)) + r$trend +
+         (elec - r$trend) ~ Time, 
+       superpose = TRUE, type ="l", ylab = NULL, xlab = NULL,
+       auto.key = list(text = c("original", 'exp(log-trend)', 
+                              'trend', 'residual')))
+{% endhighlight %}

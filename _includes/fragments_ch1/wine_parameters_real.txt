@@ -1,0 +1,14 @@
+```
+[1] "trend:"
+[1] "coefficient * modulus^n"
+   coefficients    moduli
+X1     4005.561 0.9966493
+[1] "periodics:"
+[1] "coefficient * modulus^n * cos(2 * pi* n/period + phase)"
+    periods    phases coefficients    moduli
+1 12.008804 -2.225294    1185.6458 0.9940328
+2  5.974637  1.216171     196.6835 1.0049988
+3  3.998061  2.261753     422.9253 1.0003111
+4  3.018060 -2.347688     358.1681 0.9894363
+5  2.388825  0.381569     166.2372 1.0034081
+```

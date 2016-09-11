@@ -1,0 +1,12 @@
+{% highlight r %}
+data(MotorVehicle)
+s <- ssa(MotorVehicle, L = 264)
+sf <- fossa(s, nested.groups = 1:19)
+rf <- reconstruct(sf, groups = 
+                    list(seasonality = 1:10, trend = 11:19))
+plot(rf, plot.method = "xyplot", superpose = TRUE, 
+     add.residuals = FALSE,
+     col = c("black", "darkgreen", "red"), lwd = c(1, 1, 2))
+p<- parestimate(sf, groups = list(1:10), method = "esprit-ls")
+print(p$period[seq(1, 10, 2)], digits = 3)
+{% endhighlight %}

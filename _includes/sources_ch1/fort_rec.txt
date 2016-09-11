@@ -1,0 +1,10 @@
+{% highlight r %}
+fort <- wine[, "Fortified"]
+s.fort <- ssa(fort, L = 84, kind = "1d-ssa")
+r.fort <- reconstruct(s.fort, 
+                      groups = list(Trend = 1,
+                                    Seasonality = 2:11))
+plot(r.fort, add.residuals = TRUE, add.original = TRUE,
+     plot.method = "xyplot",
+     superpose = TRUE, auto.key = list(columns = 2))
+{% endhighlight %}

@@ -1,0 +1,19 @@
+{% highlight r %}
+library(ssabook)
+data("dftreering")
+L <- 300
+s.tree <- ssa(dftreering, L = L, neig = L)
+g.tree <- grouping.auto(s.tree, base = "series", 
+                      freq.bins = c(0.1, 0.2, 0.3, 0.4, +Inf))
+r.tree <- reconstruct(s.tree, groups = g.tree)
+plot(r.tree, add.residuals = FALSE, add.original = TRUE,
+     plot.method = "xyplot")
+specs <- 
+  lapply(r.tree, function(x) spectrum(x, plot = FALSE)$spec)
+w.tree <- seq(0, length.out = length(specs$F1),
+              by = 1/length(dftreering)) 
+xyplot(F1 + F2 + F3 + F4 + F5 ~ w.tree, data = specs,
+       superpose = FALSE, type = 'l', xlab = NULL, ylab = NULL,
+       auto.key = list(lines = TRUE, points = FALSE,
+                       column = 5))
+{% endhighlight %}

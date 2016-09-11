@@ -1,0 +1,11 @@
+{% highlight r %}
+pe.Mars.160.80 <- parestimate(s.Mars.160.80, 
+                              groups = r.Mars.160.80.groups)
+print(pe.Mars.160.80)
+print(pe.Mars.160.80[[1]])
+print(pe.Mars.160.80[[2]])
+plot(pe.Mars.160.80, col = c(11, 12, 13, 14))
+plot(s.Mars.160.80, type = "vectors", 
+     idx = r.Mars.160.80.groups$Noise,
+     cuts = 255, layout = c(4, 1), plot.contrib = FALSE)
+{% endhighlight %}

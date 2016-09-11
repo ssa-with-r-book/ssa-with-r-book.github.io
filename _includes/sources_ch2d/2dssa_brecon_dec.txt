@@ -1,0 +1,8 @@
+{% highlight r %}
+library("ssabook")
+data("brecon")
+s.brecon <- ssa(brecon, kind = "2d-ssa", L = c(8, 8),
+                svd.method = "eigen")
+plot(s.brecon, type = "vectors", idx = 1:32,
+     cuts = 255, layout = c(8, 4), plot.contrib = FALSE)
+{% endhighlight %}

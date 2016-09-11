@@ -1,0 +1,23 @@
+{% highlight r %}
+idx <- seq(2, 11, 2)
+coefs.c.phase <- numeric(length(idx))
+phases.c <- numeric(length(idx))
+periods.c.phase <- numeric(length(idx))
+moduli.c.phase <- numeric(length(idx))
+for (i in seq_along(idx)) {
+  periods.c.phase[i] <- periodsc[idx[i]]
+  moduli.c.phase[i] <- modulic[idx[i]]
+  coefs.c.phase[i] <- sqrt(coefs.c[idx[i]]^2 + 
+                             coefs.c[idx[i] + 1]^2)
+  phases.c[i] <- atan2(coefs.c[idx[i] + 1], coefs.c[idx[i]])
+}
+print("trend:")
+print("coefficient * modulus^n")
+print(data.frame(coefficients = coefs.c[1], 
+                 moduli = modulic[1]))  
+print("periodics:")
+print("coefficient * modulus^n * cos(2 * pi* n/period + phase)")
+print(data.frame(periods = periods.c.phase, phases = phases.c, 
+                 coefficients = coefs.c.phase, 
+                 moduli = moduli.c.phase))  
+{% endhighlight %}

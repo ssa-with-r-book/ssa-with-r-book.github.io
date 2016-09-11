@@ -1,0 +1,43 @@
+{% highlight r %}
+N <- 100
+L <- 50
+omega1 <- 0.03
+omega2 <- 0.06
+sigma <- 0.1
+set.seed(3)
+F <- sin(2 * pi * omega1 * (1:N)) + 
+  sin(2 * pi * omega2 * (1:N)) + 
+  sigma * rnorm(N)
+s <- ssa(F, L = L, neig = min(L, N - L + 1)) #full decomposition
+plot(s)
+p1 <- plot(s, type = "vectors", idx = 1:4, layout = c(4, 1),
+           main = "Eigenvectors, Basic SSA")
+fos <- fossa(s, nested.groups = list(1:2, 3:4), gamma = 10, 
+             normalize = FALSE)
+#the total percent is equal to 100%
+sum(fos$sigma^2) / sum(s$sigma^2) * 100 
+p2 <- plot(fos, type = "vectors", idx = 1:4, layout = c(4, 1),
+           main = "Eigenvectors, SSA with derivatives")
+ios1 <- iossa(s, nested.groups = list(1:2, 3:4), maxiter = 1)
+#the total percent is not equal to 100%
+sum(ios1$sigma^2) / sum(s$sigma^2) * 100 
+p3 <- plot(ios1, type = "vectors", idx = 1:4, layout = c(4, 1),
+           main = "Eigenvectors, Iterative O-SSA, 1 iter")
+ios2 <- iossa(ios1, nested.groups = list(1:2, 3:4), maxiter = 1)
+#the total percent is not equal to 100%
+sum(ios2$sigma^2) / sum(s$sigma^2) * 100 
+p4 <- plot(ios2, type = "vectors", idx = 1:4, layout = c(4, 1),
+           main = "Eigenvectors, Iterative O-SSA, 2 iter")
+plot(p1, split = c(1, 1, 1, 4), more = TRUE)
+plot(p2, split = c(1, 2, 1, 4), more = TRUE)
+plot(p3, split = c(1, 3, 1, 4), more = TRUE)
+plot(p4, split = c(1, 4, 1, 4), more = FALSE)
+fo.rec <- reconstruct(fos, groups = list(1:2, 3:4))
+pr1 <- plot(fo.rec, plot.method = "xyplot", 
+            main = "SSA with derivatives", xlab = "")
+io.rec <- reconstruct(ios2, groups = ios2$iossa.groups)
+pr2 <- plot(io.rec, plot.method = "xyplot",
+            main = "Iterative O-SSA", xlab = "")
+plot(pr1, split = c(1, 1, 1, 2), more = TRUE)
+plot(pr2, split = c(1, 2, 1, 2), more = FALSE)
+{% endhighlight %}

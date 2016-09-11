@@ -1,0 +1,16 @@
+{% highlight r %}
+s2 <- ssa(co2, column.projector = "centering", 
+         row.projector = "centering")
+plot(reconstruct(s2, groups = 
+                 list(Linear.trend = seq_len(nspecial(s2)))),
+     add.residuals = FALSE, plot.method = "matplot")
+s4 <- ssa(co2, column.projector = 2, row.projector = 2)
+plot(reconstruct(s4, groups = 
+                 list(Trend = seq_len(nspecial(s4)))),
+     add.residuals = FALSE, plot.method = "matplot")
+plot(s4, type = "vectors", idx = 1:12)
+r <- reconstruct(s4,
+               groups = 
+                  list(Signal = c(seq_len(nspecial(s4)), 5:8)))
+plot(r, plot.method = "xyplot")
+{% endhighlight %}

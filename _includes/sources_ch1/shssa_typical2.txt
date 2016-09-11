@@ -1,0 +1,9 @@
+{% highlight r %}
+s2 <- ssa(F, L = 120)
+#plot(s2, type = "vectors")
+#plot(wcor(s2, groups = 1:20))
+#plot of reconstruction
+plot(reconstruct(s2, groups = list(c(1, 6, 7))), 
+     add.residuals = FALSE, 
+     plot.method = "xyplot", superpose = TRUE)
+{% endhighlight %}

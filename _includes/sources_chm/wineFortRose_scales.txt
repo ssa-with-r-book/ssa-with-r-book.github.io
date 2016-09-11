@@ -1,0 +1,35 @@
+{% highlight r %}
+wineFortRose <- wine[, c("Fortified", "Rose")]
+summary(wineFortRose)
+norm.wineFortRosen <- sqrt(colMeans(wineFortRose^2))
+wineFortRosen <- 
+  sweep(wineFortRose, 2, norm.wineFortRosen, "/")
+L <- 84
+s.wineFortRosen <- ssa(wineFortRosen, L = L, kind = "mssa")
+r.wineFortRosen <- reconstruct(s.wineFortRosen,
+                      groups = list(Trend = c(1, 12, 14),
+                                    Seasonality = c(2:11, 13)))
+s.wineFortRose <- ssa(wineFortRose, L = L, kind = "mssa")
+r.wineFortRose <- reconstruct(s.wineFortRose,
+                     groups = list(Trend = 1,
+                                   Seasonality = 2:11))
+wrap.plot <- function(rec, component = 1, series, 
+                      xlab = "", ylab, ...)
+  plot(rec, add.residuals = FALSE, add.original = TRUE,
+       plot.method = "xyplot", superpose = TRUE,
+       scales = list(y = list(tick.number = 3)),
+       slice = list(component = component, series = series),
+       xlab = xlab, ylab = ylab, auto.key = "", ...)
+trel1 <- wrap.plot(r.wineFortRosen, series = 2, 
+                   ylab = "Rose, norm", main = NULL)
+trel2 <- wrap.plot(r.wineFortRosen, series = 1, 
+                   ylab = "Fort, norm", main = NULL)
+trel3 <- wrap.plot(r.wineFortRose, series = 2,
+                   ylab = "Rose", main = NULL)
+trel4 <- wrap.plot(r.wineFortRose, series = 1,
+                   ylab = "Fort", main = NULL)
+plot(trel1, split = c(1, 1, 2, 2), more = TRUE)
+plot(trel2, split = c(1, 2, 2, 2), more = TRUE)
+plot(trel3, split = c(2, 1, 2, 2), more = TRUE)
+plot(trel4, split = c(2, 2, 2, 2))
+{% endhighlight %}

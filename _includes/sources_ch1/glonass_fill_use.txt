@@ -1,0 +1,13 @@
+{% highlight r %}
+s_filled = ssa(g, L = 52416, neig = 100)
+pg <- vector(length = 99)
+for (i in 1:99) {
+  pg[i] <- parestimate(s_filled, groups = list(i:(i + 1)), 
+                       method = "esprit-ls")$period[1]
+}
+print(ind <- which(pg < 1/0.003))
+print(pg[ind], digits = 0)
+r <- reconstruct(s_filled, groups = list(day = c(ind, ind+1)))
+xyplot(r$day[1:720] ~ 1:720, type = "l", 
+       ylab = NULL, xlab = NULL)
+{% endhighlight %}

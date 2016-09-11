@@ -1,0 +1,30 @@
+{% highlight r %}
+rowMeansQuantile <- function(x, level = 0.05) {
+  apply(x, 1,
+        function(x) {
+          q <- quantile(x, c(level / 2, 1 - level / 2))
+          x[x < q[1]] <- q[1]
+          x[x > q[2]] <- q[2]
+          mean(x)
+        })
+}
+library("ssabook")
+data("iossa.err")
+lseq <- c(seq(0.03, 0.058, 0.002), seq(0.062, 0.1, 0.002))
+iter.real <- rowMeansQuantile(iossa.err$iter.real)
+iter.est <- iossa.err$iter.est
+err1 <- sqrt(rowMeansQuantile(iossa.err$err1))
+err2 <- sqrt(rowMeansQuantile(iossa.err$err2))
+xlab <- expression(omega[1])
+ylab1 <- expression(N[plain(iter)])
+ylab2 <- expression(RMSE)
+p1 <- xyplot(iter.real + iter.est ~ lseq,
+             type = "l", ylab = ylab1, xlab = xlab)
+p2 <- xyplot(err1 + err2 ~ lseq,
+             type = "l", ylab = ylab2, xlab = xlab)
+fragmentSkip(pdf(
+  "../img_ch1/iossa_sim.pdf", paper = "special", width = 4, height = 3
+))
+print(p1, split = c(1, 1, 1, 2), more = TRUE)
+print(p2, split = c(1, 2, 1, 2), more = FALSE)
+{% endhighlight %}

@@ -1,0 +1,14 @@
+{% highlight r %}
+f.wineFortDry <- rforecast(s.wineFortDry, 
+                           groups = list(1, 1:12),
+                           len = 60, only.new = TRUE)
+plot(cbind(wineFortDry[, "Fortified"], 
+           f.wineFortDry$F2[, "Fortified"]),
+     plot.type = "single",
+     col = c("black", "red"), ylab = "Fort")
+plot(cbind(wineFortDry[, "Drywhite"], 
+           f.wineFortDry$F2[, "Drywhite"]),
+     plot.type = "single",
+     col = c("black", "red"), ylab = "Dry")
+par(mfrow = c(1, 1))
+{% endhighlight %}

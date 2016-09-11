@@ -1,0 +1,15 @@
+{% highlight r %}
+Mars.sh <- r.Mars.shaped$Noise
+Mars.rect.sh <- Mars.rect <- r.Mars.25$Noise
+Mars.rect.sh[is.na(Mars.sh)] <- NA
+library("latticeExtra")
+p.part.rect <- plot2d(Mars.rect[60:110, 200:250]) +
+                 layer(panel.fill(col = "yellow", 
+                                  alpha = 0.2), 
+                       under = FALSE) +
+                 plot2d(Mars.rect.sh[60:110, 200:250])
+p.part.shaped <- plot2d(r.Mars.shaped[[1]][60:110, 200:250]) +
+                   layer(panel.fill(col = "yellow"), 
+                         under = TRUE)
+plot(c(Rectangular = p.part.rect, Shaped = p.part.shaped))
+{% endhighlight %}

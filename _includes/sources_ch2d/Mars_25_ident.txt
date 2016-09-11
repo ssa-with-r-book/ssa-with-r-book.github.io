@@ -1,0 +1,7 @@
+{% highlight r %}
+plot(s.Mars.25, type = "vectors", idx = 1:20,
+     cuts = 255, layout = c(10, 2),
+     plot.contrib = FALSE)
+plot(wcor(s.Mars.25, groups = 1:30),
+     scales = list(at = c(10, 20, 30)))
+{% endhighlight %}

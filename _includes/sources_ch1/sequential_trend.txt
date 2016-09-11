@@ -1,0 +1,16 @@
+{% highlight r %}
+data(MotorVehicle)
+s1 <- ssa(MotorVehicle, L = 12)
+res1 <- reconstruct(s1, groups = list(trend = 1))
+trend <- res1$trend
+plot(res1, add.residuals = FALSE, plot.type = "single",
+     col = c("black", "red"), lwd = c(1, 2), 
+     plot.method = "xyplot", superpose = TRUE)
+res.trend <- residuals(res1)
+s2 <- ssa(res.trend, L = 264)
+res2 <- reconstruct(s2, groups = list(seasonality = 1:10))
+seasonality <- res2$seasonality
+res <- residuals(res2)
+#the resultant decomposition consists of 
+#trend, seasonality and residual
+{% endhighlight %}

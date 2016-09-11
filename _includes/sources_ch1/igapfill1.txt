@@ -1,0 +1,31 @@
+{% highlight r %}
+F <- co2 
+F[201:300] <- NA
+is <- ssa(F, L = 72)
+ig <- igapfill(is, groups = list(c(1,4)), 
+               base = "reconstructed")
+igo <- igapfill(is, groups = list(c(1,4)), 
+                base = "original")
+# Compare the result
+plot(co2, col="black")
+lines(ig, col = "blue", lwd = 1)
+lines(igo, col = "red", lwd = 1)
+ig1 <- igapfill(is, groups = list(c(1, 4)), 
+                base = "original", maxiter = 1)
+ig5 <- igapfill(is, groups = list(c(1, 4)), fill = ig1,
+                base = "original", maxiter = 4)
+ig10 <- igapfill(is, groups = list(c(1, 4)), fill = ig5, 
+                 base = "original", maxiter = 5)
+init.lin <- F  
+init.lin[200:301] <- F[200] + (0:101) / 101 * (F[301] - F[200])
+ig.lin <- igapfill(s, 
+                  fill = init.lin, 
+                  groups = list(c(1, 4)), 
+                  base = "original", maxiter = 10)
+# Compare the result
+plot(co2, col = "black")
+lines(ig1, col = "green", lwd = 1)
+lines(ig5, col = "blue", lwd = 1)
+lines(ig10, col = "red", lwd = 1)
+lines(ig.lin, col = "darkred", lwd = 1)
+{% endhighlight %}

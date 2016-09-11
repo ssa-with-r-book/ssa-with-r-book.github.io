@@ -1,0 +1,12 @@
+{% highlight r %}
+library("ssabook")
+data("dwarfst")
+s <- ssa(dwarfst, L = 100)
+g <- grouping.auto(s, grouping.method = "wcor", 
+                   method = "average", nclust = 2)
+print(g[[1]])
+plot(wcor(s, groups = 1:30), scales = list(at = c(1, 11, 30)))
+plot(reconstruct(s, groups = g), 
+     add.residuals = FALSE, 
+     plot.method = "xyplot", superpose = FALSE)
+{% endhighlight %}

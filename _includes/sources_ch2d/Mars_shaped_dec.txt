@@ -1,0 +1,12 @@
+{% highlight r %}
+mask.Mars.0 <- (Mars != 0)
+mask.Mars.1 <- (Mars != 255)
+Mars[!mask.Mars.0] <- NA
+print(system.time(s.Mars.shaped <-
+  ssa(Mars, kind = "2d-ssa",
+      mask = mask.Mars.1, wmask = circle(15))))
+mask.Mars.res <- (s.Mars.shaped$weights > 0)
+plot2d(mask.Mars.0)
+plot2d(mask.Mars.1)
+plot2d(mask.Mars.res)
+{% endhighlight %}

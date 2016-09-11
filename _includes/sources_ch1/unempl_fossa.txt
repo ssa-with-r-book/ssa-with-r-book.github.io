@@ -1,0 +1,42 @@
+{% highlight r %}
+data(USUnemployment)
+ser <- USUnemployment[, "MALE"]
+Time <- time(ser)
+L = 204
+ss <- ssa(ser, L = L, svd.method = "eigen")
+res<- reconstruct(ss, groups = 
+                    list(c(1:4, 7:11), c(5, 6, 12, 13)))
+trend <- res$F1
+seasonality <- res$F2
+w1 <- wcor(ss, groups = 1:30)
+fss <- fossa(ss, nested.groups = 
+               list(c(1:4, 7:11), c(5, 6, 12, 13)), 
+             gamma = Inf)
+fres <- reconstruct(fss, groups = list(5:13, 1:4))
+ftrend <- fres$F1
+fseasonality <- fres$F2
+theme1 <- simpleTheme(col = c("grey", "blue","red"),
+                      lwd = c(2, 1, 1),
+                      lty = c("solid", "solid", "solid"))
+theme2 <- simpleTheme(col = c("blue", "red"), lwd = c(1, 1),
+                      lty = c("solid", "solid"))
+p1 <- xyplot(ser + trend + ftrend ~ Time, 
+       xlab = "", ylab = "", type = "l", lwd = c(2, 1, 1), 
+       col = c("grey", "blue","red"),
+       auto.key = list(text = c("Full series",
+                                "Basic SSA trend",
+                                "DerivSSA trend"),
+                       type = c("l", "l", "l"),
+                       lines = TRUE, points = FALSE),
+       par.settings = theme1)
+p2 <- xyplot(seasonality + fseasonality ~ Time, 
+       xlab = "", ylab = "", type = "l", lwd = c(2, 1), 
+       col = c("blue", "red"),
+       auto.key = list(text = c("Basic SSA seasonality",
+                                "DerivSSA seasonality"),
+                       type = c("l", "l"),
+                       lines = TRUE, points = FALSE),
+       par.settings = theme2)
+plot(p1, split = c(1, 1, 1, 2), more = TRUE)
+plot(p2, split = c(1, 2, 1, 2), more = FALSE)
+{% endhighlight %}

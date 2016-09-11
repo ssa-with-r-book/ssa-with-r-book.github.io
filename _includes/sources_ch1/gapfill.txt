@@ -1,0 +1,15 @@
+{% highlight r %}
+F <- co2 
+F[201:300] <- NA
+s <- ssa(F, L = 72)
+g0 <- gapfill(s, groups = list(c(1, 4)), method = "sequential", 
+              alpha = 0, base = "reconstructed")
+g1 <- gapfill(s, groups = list(c(1, 4)), method = "sequential", 
+              alpha = 1, base = "reconstructed")
+g <- gapfill(s, groups = list(c(1, 4)), method = "sequential", 
+             base = "reconstructed")
+plot(co2, col = "black")
+lines(g0, col = "blue", lwd = 2)
+lines(g1, col = "green", lwd = 2)
+lines(g, col = "red", lwd = 2)
+{% endhighlight %}

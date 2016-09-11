@@ -1,0 +1,31 @@
+{% highlight r %}
+data(elec, package = "fma")
+N <- length(elec)
+len <- 24
+L <- 24
+s <- ssa(window(elec, end = c(1993, 8)), L = L)
+si <- iossa(s, nested.groups = list(c(1, 4), c(2, 3, 5:10)))
+fi <- rforecast(si, groups = list(trend = c(1:2)), 
+                len = len, only.new = FALSE)
+s0 <- ssa(window(elec, start = c(1972, 8), end = c(1993, 8)), 
+          L = L)
+f0 <- vforecast(s0, groups = list(trend = c(1)), 
+                len = len, only.new = TRUE)
+si0 <- iossa(s0, nested.groups = list(c(1,4), c(2,3,5:10)))
+fi0 <- vforecast(si0, groups = list(trend = c(1:2)), 
+                 len = len, only.new = TRUE)
+theme <- simpleTheme(col = c("black", "red", "blue", "green"),
+                     lwd = c(1, 1, 2, 2),
+                     lty = c("solid", "solid", 
+                             "solid", "dashed"))
+xyplot(cbind(elec,
+             window(fi, end = c(1993, 8)),
+             window(fi, start = c(1993, 9)),
+             fi0), 
+       superpose = TRUE, type ="l", ylab = NULL, xlab = NULL,
+       auto.key = list(text = c("original", 'trend', 
+                                'forecast', 'forecast0'),
+                       type = c("l", "l", "l", 'l'),
+                       lines = TRUE, points = FALSE),
+       par.settings = theme)
+{% endhighlight %}

@@ -1,0 +1,26 @@
+{% highlight r %}
+N <- 199
+tt <- (1:N) / N
+r <- 5
+F0 <- 10 * (tt - 0.5)^r
+F <- F0 + sin(2 * pi * (1:N) / 10)
+L <- 100
+dec <- ssa(F, L = L, column.projector = 3, row.projector = 3)
+rec1 <- reconstruct(dec, groups = 
+                      list(Trend = seq_len(nspecial(dec))))
+fit1 <- rec1$Trend
+fit1_3b <- lm(fit1 ~ poly((1:N), r, raw = TRUE))
+fit3b <- lm(F ~ poly((1:N), r, raw = TRUE))
+li <- 1:199
+d <- data.frame(Initial = F[li],
+                dproj = fit1[li],
+                dproj_reg = predict(fit1_3b)[li],
+                regr = predict(fit3b)[li], trend = F0[li])
+xyplot(as.formula(paste(paste(colnames(d), collapse = "+"),
+                        "~", "1:nrow(d)")),
+       data = d,
+       type = "l", ylab = "", xlab = "",
+       lty = c(1, 1, 1, 1, 1), lwd = c(1, 2, 2, 2, 2),
+       auto.key = list(columns = 3,
+                       lines = TRUE, points = FALSE))
+{% endhighlight %}

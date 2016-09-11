@@ -1,0 +1,16 @@
+{% highlight r %}
+FilledRose <- AustralianWine
+FilledRose[175:176, "Rose"] <- g.wineFortRose[175:176]
+mainsales <- ts(rowSums(FilledRose[, -1]))
+tsp(mainsales) <- tsp(AustralianWine)
+wine.add.mainsales <- cbind(FilledRose, mainsales)
+colnames(wine.add.mainsales) <- 
+  c(colnames(FilledRose), 'Mainsales')
+L <- 84
+s.totalmain <- ssa(wine.add.mainsales[, c('Mainsales', 
+                                          'Total')],
+                   L = L, kind = "mssa")
+f.totalmain <- rforecast(s.totalmain, groups = list(1:14),
+                         len = 11, only.new = TRUE)
+plot(f.totalmain, main = "", xlab = NULL, oma = c(3, 1, 1, 1))
+{% endhighlight %}

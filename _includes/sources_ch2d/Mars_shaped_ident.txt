@@ -1,0 +1,8 @@
+{% highlight r %}
+plot(s.Mars.shaped, type = "vectors", idx = 1:30, 
+     fill.color = "yellow", cuts = 255, layout = c(10, 3), 
+     plot.contrib = FALSE)
+plot(wcor(s.Mars.shaped, groups = 1:30),
+     scales = list(at = c(10, 20, 30)))
+plot(s.Mars.shaped)
+{% endhighlight %}

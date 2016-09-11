@@ -1,0 +1,32 @@
+{% highlight r %}
+SIMUL <- FALSE
+N <- 100
+sigma <- 0.5
+set.seed(1)
+alpha <- seq(0.0, 0.01, 0.001)
+L <- 50
+Q <- 1000
+if (SIMUL) {
+  RMSE <-
+    sapply(alpha,
+           function(a) {
+             sqrt(rowMeans(replicate(Q, {
+               S <- exp(a * (1:N)) * sin(2 * pi * (1:N) / 7)
+               F <- S + sigma * rnorm(N)
+               Fcenter <- F - mean(F)
+               st <- ssa(Fcenter, L = L, kind = "toeplitz-ssa")
+               s <- ssa(F, L = L, kind = "1d-ssa")
+               rec <- reconstruct(s, groups = list(1:2))$F1
+               rec.t <- reconstruct(st, groups = list(1:2))$F1
+               c("1d-ssa" = mean((rec - S)^2),
+                 "toeplitz" = mean((rec.t - S)^2))
+             })))
+           })
+    
+  toeplitz.sim <- as.data.frame(t(RMSE))
+} else {
+  library("ssabook")
+  data("toeplitz.sim")
+}
+matplot(alpha, toeplitz.sim, type = 'l', ylim = c(0, 0.25))
+{% endhighlight %}

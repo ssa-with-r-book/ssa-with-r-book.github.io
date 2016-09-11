@@ -1,0 +1,11 @@
+{% highlight r %}
+r.brecon <- reconstruct(s.brecon, 
+                        groups = list(1:3, 4:8, 9:17))
+plot(r.brecon, cuts = 255, layout = c(5, 1), 
+     par.strip.text = list(cex = 0.75), 
+     col = topo.colors(1000))
+plot(r.brecon, cuts = 255, layout = c(5, 1), 
+     par.strip.text = list(cex = 0.75), 
+     type = "cumsum", at = "free", 
+     col = topo.colors(1000))
+{% endhighlight %}

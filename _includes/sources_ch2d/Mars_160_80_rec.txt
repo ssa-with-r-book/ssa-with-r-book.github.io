@@ -1,0 +1,8 @@
+{% highlight r %}
+print(system.time(s.Mars.160.80 <-
+  ssa(Mars, kind = "2d-ssa", L = c(160, 80))))
+r.Mars.160.80.groups <- list(Noise = c(36, 37, 42, 43))
+r.Mars.160.80 <- reconstruct(s.Mars.160.80, 
+                             groups = r.Mars.160.80.groups)
+plot(r.Mars.160.80, cuts = 255, layout = c(3, 1))
+{% endhighlight %}

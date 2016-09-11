@@ -1,0 +1,17 @@
+{% highlight r %}
+F <- co2 
+loc <- c(11:17, 61:67, 71:77, 101:107)
+F[loc] <- NA;
+sr <- ssa(F, L = 200)
+igr <- igapfill(sr, groups = list(c(1:6)), fill = 320,
+                base = "original", maxiter = 10)
+gr <- gapfill(sr, groups = list(c(1:6)), 
+              method = "simultaneous", base = "original")
+G <- rep(NA, length(F)); G[loc] = gr[loc]
+mean((gr[loc] - co2[loc])^2) #MSE of gapfill
+mean((igr[loc] - co2[loc])^2) #MSE of igapfill
+xyplot(igr + G + F ~ time(co2), type = "l", 
+       lwd = c(1, 2, 1), ylab = NULL,
+       auto.key = list(lines = TRUE, points = FALSE, 
+                    text = c("igapfill", "gapfill", "series")))
+{% endhighlight %}

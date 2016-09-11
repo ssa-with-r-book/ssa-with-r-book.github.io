@@ -1,0 +1,20 @@
+{% highlight r %}
+#minimal LRR
+x <- 1.01^(1:10)
+s <- ssa(x, L = 2)
+l <- lrr(s, groups = list(1))
+print(l)
+roots(l)
+#extraneous roots
+x <- 1.01^(1:10)
+s <- ssa(x, L = 6)
+l <- lrr(s, groups = list(1))
+r <- roots(l)
+plot(l)
+#multiple roots
+x <- 2.188 * (1:10) + 7.77
+s <- ssa(x, L = 3)
+l <- lrr(s, groups = list(1:2))
+print(l)
+roots(l)
+{% endhighlight %}

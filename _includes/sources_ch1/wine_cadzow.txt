@@ -1,0 +1,27 @@
+{% highlight r %}
+wine <- window(AustralianWine, end = time(AustralianWine)[168])
+ser <- wine[, "Fortified"]
+N <- length(ser)
+L <- 84
+K <- N - L + 1
+rank <- 11
+#Basic SSA
+s0 <- ssa(ser, L = L)
+r0 <- reconstruct(s0, groups = list(signal = 1:rank))$signal
+#Cadzow iterations with series weights close to equal.
+alpha <- 0.1
+weights <- numeric( K)
+weights[1:K] <- alpha
+weights[seq(from = K, to = 1, by = -L)] <- 1
+s <- ssa(ser, L = L, column.oblique = "identity", 
+         row.oblique = weights, decompose.force = FALSE)
+c <- cadzow(s, rank = rank)
+sc <- ssa(c, L = rank + 1)
+rc <- reconstruct(sc, groups = list(signal = 1:rank))$signal
+xyplot(cbind(rc, ser), type = "l",
+       superpose = TRUE,
+       auto.key = list(text = c("Reconstructed",
+                                "Initial"),
+                       type = c("l", "l"),
+                       lines = TRUE, poinwts = FALSE))
+{% endhighlight %}
