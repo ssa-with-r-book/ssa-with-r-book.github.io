@@ -18,7 +18,7 @@ Here you can find data used in the book for examples. All of them can be found i
 	</thead>
 	<tbody>
 		<tr>
-			<td><a href = "https://cran.r-project.org/web/packages/forecast/index.html">AustralianWine</a></td><td>Australian wine sales: thousands of litres. By wine makers in bottles ≤ 1 litre</td><td><abbr title = "Jan 1980 – Jul 1995">176</abbr></td><td>monthly</td><td><a href = "index.html#rssa-package">RSSA</a></td><td>AustralianWine</td>
+			<td><a href = "https://cran.r-project.org/web/packages/forecast/index.html">AustralianWine</a></td><td>Australian wine sales: thousands of litres. By wine makers in bottles ≤ 1 litre</td><td><abbr title = "Jan 1980 – Jul 1995">176</abbr></td><td>monthly</td><td><a href = "rssa-package.html">RSSA</a></td><td>AustralianWine</td>
 		</tr>
 		<tr>
 			<td><a href = "https://www.amazon.com/Visualizing-Data-William-S-Cleveland/dp/0963488406">CO2</a></td><td>Atmospheric concentrations of CO2 in parts per million (ppm)</td><td><abbr title = "Jan 1959 - Jan 1997">468</abbr></td><td>monthly</td><td><abbr title = "Built-in package">DATASETS</abbr></td><td>co2</td>
@@ -33,10 +33,10 @@ Here you can find data used in the book for examples. All of them can be found i
 			<td><a href = "https://cran.r-project.org/web/packages/forecast/index.html">Tree rings</a></td><td>Tree ring indices, Douglas fir, Snake river basin, U S A</td><td><abbr title = "1282 – 1950">669</abbr></td><td>annual</td><td><a href = "#ssabook-package">SSABOOK</a></td><td>dftreerings</td>
 		</tr>
 		<tr>
-			<td><a href = "http://www.bea.gov/national/nzpaweb/nipa_underlying/GetCSV.asp? GetWhat=SS_Data/Section7All_xls.xls&Section=8">MotorVehicle</a></td><td>Total domestic and foreign car sales in the USA in thousands</td><td><abbr title = "Jan 1967 – Jan 2012">541</abbr></td><td>monthly</td><td><a href = "index.html#rssa-package">RSSA</a></td><td>MotorVehicle</td>
+			<td><a href = "http://www.bea.gov/national/nzpaweb/nipa_underlying/GetCSV.asp? GetWhat=SS_Data/Section7All_xls.xls&Section=8">MotorVehicle</a></td><td>Total domestic and foreign car sales in the USA in thousands</td><td><abbr title = "Jan 1967 – Jan 2012">541</abbr></td><td>monthly</td><td><a href = "rssa-package.html">RSSA</a></td><td>MotorVehicle</td>
 		</tr>
 		<tr>
-			<td><a href = "http://www.springer.com/us/book/9781461295631">US unemployment</a></td><td>U.S. male and female unemployment figures in thousands (16-19 years and from 20 years)</td><td><abbr title = "Jan 1948 – Jan 1981">408</abbr></td><td>monthly</td><td><a href = "index.html#rssa-package">RSSA</a></td><td>USUnemployment</td>
+			<td><a href = "http://www.springer.com/us/book/9781461295631">US unemployment</a></td><td>U.S. male and female unemployment figures in thousands (16-19 years and from 20 years)</td><td><abbr title = "Jan 1948 – Jan 1981">408</abbr></td><td>monthly</td><td><a href = "rssa-package.html">RSSA</a></td><td>USUnemployment</td>
 		</tr>
 		<tr>
 			<td><a href = "https://cran.r-project.org/web/packages/forecast/index.html">Hotel</a></td><td>Hotel occupied room av.</td><td><abbr title = "Jan 1963 – Dec 1976">168</abbr></td><td>monthly</td><td><a href = "#ssabook-package">SSABOOK</a></td><td>hotel</td>
@@ -60,7 +60,7 @@ Here you can find data used in the book for examples. All of them can be found i
 			<td><abbr title = "Provided by Erste Bank AG, Vienna, Austria, to the authors of the R-package DATASETS">EuStockMarkets</abbr></td><td>Closing prices of major European stock indices</td><td><abbr title = "during 1994– 1998">1860</abbr></td><td>daily</td><td><abbr title = "Built-in package">DATASETS</abbr></td><td>EuStockMarkets</td>
 		</tr>
 		<tr>
-			<td><a href = "http://www.astrosurf.com/buil/iris/tutorial8/doc23_us.htm">Mars</a></td><td>An image of Mars performed by Pierre Thierry</td><td>258 × 275</td><td>image</td><td><a href = "index.html#rssa-package">RSSA</a></td><td>Mars</td>
+			<td><a href = "http://www.astrosurf.com/buil/iris/tutorial8/doc23_us.htm">Mars</a></td><td>An image of Mars performed by Pierre Thierry</td><td>258 × 275</td><td>image</td><td><a href = "rssa-package.html">RSSA</a></td><td>Mars</td>
 		</tr>
 		<tr>
 			<td><abbr title = "the data are obtained by means of the function getData of the R-package RASTER">Brecon Beacons</abbr></td><td>The test DTM of a region in South Wales, UK</td><td>80 × 100</td><td>image</td><td><a href = "#ssabook-package">SSABOOK</a></td><td>brecon</td>
