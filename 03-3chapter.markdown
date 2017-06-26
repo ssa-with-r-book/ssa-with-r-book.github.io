@@ -16,6 +16,7 @@ tags: codeexample
 
 #### Produced output
 ![Roots](img/img_ch1/lrr_roots.svg)
+*Exponential signal: One signal and four extraneous roots.*
 
 {% include fragments_ch1/lrr_roots.txt %}
 
@@ -25,6 +26,7 @@ tags: codeexample
 
 #### Produced output
 ![Roots](img/img_ch1/co2_roots.svg)
+*'CO2': Six signal roots.*
 
 {% include fragments_ch1/co2_freq.txt %}
 
@@ -34,9 +36,16 @@ tags: codeexample
 
 #### Produced output
 ![Forecast](img/img_ch1/co2_for1.svg)
+*'CO2': A set of recurrent forecasts.*
+
 ![Forecast](img/img_ch1/co2_for1a.svg)
+*'CO2': Forecast of trend.*
+
 ![Forecast](img/img_ch1/co2_for2.svg)
+*'CO2': Backward forecast of the signal.*
+
 ![Forecast](img/img_ch1/co2_for4.svg)
+*'CO2': Plot of confidence intervals for the signal.*
 
 ### Fragment 3.3.1 (Subspace-based gap filling)
 
@@ -44,6 +53,8 @@ tags: codeexample
 
 #### Produced output
 ![Forecast](img/img_ch1/gapfill.svg)
+*'CO2': Subspace-based gap filling, from the left,
+        from the right, and their combination.*
 
 ### Fragment 3.3.2 (Iterative gap filling, one gap)
 
@@ -51,7 +62,10 @@ tags: codeexample
 
 #### Produced output
 ![Gap filling](img/img_ch1/igapfill.svg)
+*'CO2': Iterative gap filling of trend.*
+
 ![Gap filling](img/img_ch1/igapfill2.svg)
+*'CO2': Iterative gap filling of trend: convergence.*
 
 ### Fragment 3.3.3 (Iterative gap filling, several gaps)
 
@@ -62,6 +76,7 @@ tags: codeexample
 {% include fragments_ch1/igapfill2.txt %}
 
 ![Gap filling](img/img_ch1/igapfill3.svg)
+*'CO2': Iterative and simultaneous subspace-based gap filling of trend: randomly located gaps.*
 
 ### Fragment 3.4.1 (Weighted Cadzow approximation)
 
@@ -70,6 +85,7 @@ tags: codeexample
 #### Produced output
 
 ![Comparison](img/img_ch1/cadzowforecast.svg)
+*'CO2': Approximation of rank 6 by the weighted Cadzow method and its forecast.*
 
 {% include fragments_ch1/weightedcadzow.txt %}
 
@@ -90,6 +106,7 @@ Warning: this example takes a lot of computational time.
 
 #### Produced output
 ![Forecast](img/img_ch1/elec_trend_for.svg)
+*'Elec': Trend forecasting.*
 
 ### Fragment 3.5.2 (‘Elec’: combined forecasting)
 
@@ -97,6 +114,7 @@ Warning: this example takes a lot of computational time.
 
 #### Produced output
 ![Forecast](img/img_ch1/elec_comb_for.svg)
+*'Elec': Combined forecasting.*
 
 ### Fragment 3.5.3 (‘Cowtemp’: different methods of forecasting)
 
@@ -107,55 +125,80 @@ Warning: this example takes a lot of computational time.
 {% include fragments_ch1/cowtemp.txt %}
 
 ![Forecast](img/img_ch1/cowtemp.svg)
+*'Cowtemp': Basic SSA and Toeplitz SSA forecasting.*
 
 ### Fragment 3.5.4 (Function for perturbed forecasting intervals)
 
 {% include sources_ch1/perturbation.txt %}
 
-### Fragment 3.5.5 (`Total': stability of forecasting)
+### Fragment 3.5.5 ('Total': stability of forecasting)
 
 {% include sources_ch1/bootstrap.txt %}
 
 #### Produced output
 ![wcor](img/img_ch1/bootstrap_wcor.svg)
-![Errors](img/img_ch1/bootstrap_err.svg)
-![Intervals](img/img_ch1/bootstrap1.svg)
-![Intervals](img/img_ch1/bootstrap12.svg)
-![Intervals](img/img_ch1/bootstrap14.svg)
-![Comparison](img/img_ch1/bootstrap_comparison.svg)
+*'Total': **w**-Correlations.*
 
-### Fragment 3.5.6 (`Glonass': gap filling)
+![Errors](img/img_ch1/bootstrap_err.svg)
+*'Total': Sizes of 90% forecasting intervals in dependence on the number of components.*
+
+![Intervals](img/img_ch1/bootstrap1.svg)
+*'Total': Perturbed forecasting intervals, ET1.*
+
+![Intervals](img/img_ch1/bootstrap12.svg)
+*'Total': Perturbed forecasting intervals, ET1--12.*
+
+![Intervals](img/img_ch1/bootstrap14.svg)
+*'Total': Perturbed forecasting intervals, ET1--14.*
+
+![Comparison](img/img_ch1/bootstrap_comparison.svg)
+*'Total': Comparison of forecasts by ET1--12 and ET1--14.*
+
+### Fragment 3.5.6 ('Glonass': gap filling)
 
 {% include sources_ch1/glonass_fill.txt %}
 
 #### Produced output
 
 ![Series](img/img_ch1/glo_na.svg)
-![Series](img/img_ch1/glo_short_na.svg)
-![Eigenvectors](img/img_ch1/glo_fill_u.svg)
-![Eigenvectors](img/img_ch1/glo_fill.svg)
-![Periodogram](img/img_ch1/glo_pgram_un.svg)
-![Periodogram](img/img_ch1/glo_pgram_fill.svg)
+*'Glonass': Initial series with gaps.*
 
-### Fragment 3.5.7 (`Glonass': periodicity extraction after the gap filling)
+![Series](img/img_ch1/glo_short_na.svg)
+*'Glonass': A subseries with a gap (left) and with the suppressed gap (right).*
+
+![Eigenvectors](img/img_ch1/glo_fill_u.svg)
+*'Glonass': Eigenvectors for the series with gaps, L=72.*
+
+![Series](img/img_ch1/glo_fill.svg)
+*'Glonass': A subseries with the filled gap.*
+
+![Periodogram](img/img_ch1/glo_pgram_un.svg)
+*'Glonass': Periodogram of the series with suppressed gaps.*
+
+![Periodogram](img/img_ch1/glo_pgram_fill.svg)
+*'Glonass': Periodogram of the series with filled gaps.*
+
+### Fragment 3.5.7 ('Glonass': periodicity extraction after the gap filling)
 
 {% include sources_ch1/glonass_fill_use.txt %}
 
 #### Produced output
 
 ![Series](img/img_ch1/glo_day.svg)
+*'Glonass': A subseries with the 12-hours periodicity; it is extracted from the series with filled gaps and L=52416.*
 
 {% include fragments_ch1/glonass_fill_use.txt %}
 
-### Fragment 3.5.8 (`FORT': Cadzow iterations)
+### Fragment 3.5.8 ('FORT': Cadzow iterations)
 
 {% include sources_ch1/wine_cadzow.txt %}
 
 #### Produced output
 
 ![Approximation](img/img_ch1/fort_cadzow.svg)
+*'FORT': Approximation by a series of finite rank.*
 
-### Fragment 3.5.9 (`FORT': Estimation of parameters by Basic SSA)
+### Fragment 3.5.9 ('FORT': Estimation of parameters by Basic SSA)
 
 {% include sources_ch1/wine_parameters1.txt %}
 
@@ -163,7 +206,7 @@ Warning: this example takes a lot of computational time.
 
 {% include fragments_ch1/wine_parameters1.txt %}
 
-### Fragment 3.5.10 (`FORT': Estimation of parameters by Cadzow iterations)
+### Fragment 3.5.10 ('FORT': Estimation of parameters by Cadzow iterations)
 
 {% include sources_ch1/wine_parameters_inf.txt %}
 
@@ -171,7 +214,7 @@ Warning: this example takes a lot of computational time.
 
 {% include fragments_ch1/wine_parameters_inf.txt %}
 
-### Fragment 3.5.11 (`FORT': Estimation of parametric real-valued form)
+### Fragment 3.5.11 ('FORT': Estimation of parametric real-valued form)
 
 {% include sources_ch1/wine_parameters_real.txt %}
 
@@ -179,7 +222,7 @@ Warning: this example takes a lot of computational time.
 
 {% include fragments_ch1/wine_parameters_real.txt %}
 
-### Fragment 3.5.12 (`Sunspots': Subspace tracking)
+### Fragment 3.5.12 ('Sunspots': Subspace tracking)
 
 {% include sources_ch1/sunspot_tracking.txt %}
 
@@ -187,5 +230,10 @@ Warning: this example takes a lot of computational time.
 
 ![Trend](img/img_ch1/sunspots.svg)
 ![Tracking](img/img_ch1/sunspots_per_track.svg)
+*'Sunspots': Trend extraction (top), subspace tracking of residuals
+    with B=22 (middle) and B=44 (bottom).*
 
 | ![Hmat](img/img_ch1/sunspots_change22.svg) | ![Hmat](img/img_ch1/sunspots_change44.svg) |
+
+<center><em>'Sunspots': Heterogeneity matrices
+    B=22 (left) and B=44 (right).</em></center>

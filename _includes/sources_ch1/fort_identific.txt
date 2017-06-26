@@ -2,7 +2,7 @@
 plot(s.fort, type = "vectors", idx = 1:8)
 plot(s.fort, type = "paired", idx = 2:11, plot.contrib = FALSE)
 print(parestimate(s.fort, groups = list(2:3, 4:5), 
-            method = "pairs"))
+                  method = "pairs"))
 plot(wcor(s.fort, groups = 1:30),
           scales = list(at = c(10, 20, 30)))
 plot(reconstruct(s.fort, groups = list(G12 = 2:3, G4 = 4:5, 

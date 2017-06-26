@@ -3,7 +3,7 @@ plot(s.wineFortDry, type = "vectors", idx = 1:8)
 plot(s.wineFortDry, type = "paired", idx = 2:11, 
      plot.contrib = FALSE)
 print(parestimate(s.wineFortDry, groups = list(2:3, 4:5), 
-            method = "esprit-ls"))
+                  method = "esprit-ls"))
 plot(wcor(s.wineFortDry, groups = 1:30),
      scales = list(at = c(10, 20, 30)))
 si.wineFortDry <- iossa(s.wineFortDry, 

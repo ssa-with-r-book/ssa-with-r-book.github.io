@@ -28,6 +28,7 @@ tags: codeexample
 #### Produced output
 
 ![Reconstruction](img/img_ch2d/Mars_25_rec.svg)
+*'Mars': Separated periodic noise, (L<sub>x</sub>, L<sub>y</sub>)=(25, 25).*
 
 {% include fragments_ch2d/Mars_25_dec.txt %}
 
@@ -38,7 +39,10 @@ tags: codeexample
 #### Produced output
 
 ![Eigenarrays](img/img_ch2d/Mars_25_ident_psi.svg)
+*'Mars': Eigenarrays, (L<sub>x</sub>, L<sub>y</sub>)=(25, 25).*
+
 ![Wcor](img/img_ch2d/Mars_25_ident_wcor.svg)
+*'Mars': **w**-Correlations (L<sub>x</sub>, L<sub>y</sub>)=(25, 25).*
 
 ### Fragment 5.1.7 ('Mars': Reconstruction)
 
@@ -47,6 +51,7 @@ tags: codeexample
 #### Produced output
 
 ![Reconstruction](img/img_ch2d/Mars_160_80_rec.svg)
+*'Mars': Reconstruction (L<sub>x</sub>, L<sub>y</sub>)=(160, 80).*
 
 {% include fragments_ch2d/Mars_160_80_rec.txt %}
 
@@ -59,6 +64,10 @@ tags: codeexample
 
 | ![Mask](img/img_ch2d/Mars_shaped_mask_0.svg) | ![Mask](img/img_ch2d/Mars_shaped_mask_1.svg) | ![Mask](img/img_ch2d/Mars_shaped_mask_res.svg) |
 
+<center><em>'Mars' masks specification. Left: specified by <code>NA</code>, center:
+            the parameter <code>mask</code>, right: resulting mask.
+            White and black colors correspond to <code>TRUE</code> and <code>FALSE</code> respectively.</em></center>
+
 {% include fragments_ch2d/Mars_shaped_dec.txt %}
 
 ### Fragment 5.2.3 ('Mars': Reconstruction)
@@ -68,26 +77,29 @@ tags: codeexample
 #### Produced output
 
 ![Reconstruction](img/img_ch2d/Mars_shaped_rec.svg)
+*'Mars': Reconstruction, ShSSA.*
 
-### Fragment 5.2.4 ('Mars': Identification)
+### Fragments 5.2.4 ('Mars': Identification) and 5.2.5 ('Mars': Improvement by DerivSSA)
 
 {% include sources_ch2d/Mars_shaped_ident.txt %}
-
-#### Produced output
-
-![Eigenarrays](img/img_ch2d/Mars_shaped_ident_psi.svg)
-
-| ![Wcor](img/img_ch2d/Mars_shaped_ident_wcor.svg) | ![Contributions](img/img_ch2d/Mars_shaped_eval.svg) |
-
-### Fragment 5.2.5 ('Mars': Improvement by DerivSSA)
 
 {% include sources_ch2d/Mars_shaped_fossa.txt %}
 
 #### Produced output
 
-![Eigenarrays](img/img_ch2d/Mars_shaped_fossa_ident_psi.svg)
+![Eigenarrays](img/img_ch2d/Mars_shaped_ident_psi.svg)
+*'Mars': Eigenarrays, ShSSA.*
 
-| ![Wcor](img/img_ch2d/Mars_shaped_fossa_ident_wcor.svg) | ![Contributions](img/img_ch2d/Mars_shaped_fossa_eval.svg) |
+![Eigenarrays](img/img_ch2d/Mars_shaped_fossa_ident_psi.svg)
+*'Mars': Eigenarrays, ShSSA; improvement by DerivSSA.*
+
+| ![Wcor](img/img_ch2d/Mars_shaped_ident_wcor.svg) | ![Contributions](img/img_ch2d/Mars_shaped_fossa_ident_wcor.svg) |
+
+<center><em>'Mars': <b>w</b>-Correlations, ShSSA: initial (left) and after DerivSSA.</em></center>
+
+| ![Wcor](img/img_ch2d/Mars_shaped_eval.svg) | ![Contributions](img/img_ch2d/Mars_shaped_fossa_eval.svg) |
+
+<center><em>'Mars': Contribution of elementary components, ShSSA: initial (left) and after DerivSSA.</em></center>
 
 ### Fragment 5.3.1 ('Mars': Parameter estimation with 2D-ESPRIT)
 
@@ -96,7 +108,10 @@ tags: codeexample
 #### Produced output
 
 ![Roots](img/img_ch2d/Mars_160_80_esprit.svg)
+*'Mars': Parameter estimation with 2D-ESPRIT, (L<sub>x</sub>, L<sub>y</sub>)=(160, 80).*
+
 ![Eigenarrays](img/img_ch2d/Mars_160_80_psi.svg)
+*'Mars': Eigenarrays corresponding to the periodic noise, (L<sub>x</sub>, L<sub>y</sub>)=(160, 80).*
 
 {% include fragments_ch2d/Mars_160_80_esprit.txt %}
 
@@ -115,6 +130,7 @@ tags: codeexample
 #### Produced output
 
 ![Comparison](img/img_ch2d/Mars_rect_vs_shaped.svg)
+*'Mars': comparison of texture reconstructions by 2D-SSA and ShSSA.*
 
 ### Fragment 5.4.2 ('Brecon Beacons': Decomposition)
 
@@ -123,6 +139,7 @@ tags: codeexample
 #### Produced output
 
 ![Eigenarrays](img/img_ch2d/2dssa_brecon_ident_psi.svg)
+*'Brecon Beacons': 8 x 8 windows, eigenarrays.*
 
 ### Fragment 5.4.3 ('Brecon Beacons': Reconstruction)
 
@@ -131,7 +148,10 @@ tags: codeexample
 #### Produced output
 
 ![Reconstruction](img/img_ch2d/2dssa_brecon_rec.svg)
+*'Brecon Beacons': 8 x 8 window, reconstructions (𝕏&#771;<sub>k</sub>).*
+
 ![Reconstruction](img/img_ch2d/2dssa_brecon_rec_cumsum.svg)
+*'Brecon Beacons': 8 x 8 window, cumulative reconstructions (𝕐&#771;<sub>k</sub>).*
 
 ### Fragments 5.4.4 (2D-SSA: centered DFT) and 5.4.5 (2D-SSA: DFT of cumulative reconstructions)
 
@@ -142,6 +162,9 @@ tags: codeexample
 
 | ![Reconstruction](img/img_ch2d/brecon_rec_cumrest1_dft.svg) | ![Reconstruction](img/img_ch2d/brecon_rec_cumrest2_dft.svg) | ![Reconstruction](img/img_ch2d/brecon_rec_cumrest3_dft.svg) |
 
+<center><em>'Brecon Beacons': 8 x 8 window, absolute values of the DFT
+                 of 𝕏 - 𝕐&#771;<sub>k</sub>, k=1,2,3.</em></center>
+
 ### Fragments 5.4.6 ('Kruppel': Analysis of data given on a cylinder)
 
 {% include sources_ch2d/2dssa_circular_ex.txt %}
@@ -149,7 +172,10 @@ tags: codeexample
 #### Produced output
 
 ![Factor vectors](img/img_ch2d/circular_factor.svg)
+*'Kruppel': Factor vectors.*
+
 ![Reconstruction](img/img_ch2d/Circular_reconstructed.svg)
+*'Kruppel': Original image, reconstruction and residual.*
 
 ### Fragments 5.4.7 ('Monet': decomposition by multivariate 2D-SSA)
 
@@ -159,6 +185,10 @@ tags: codeexample
 
 | ![Original](img/img_ch2d/image_color.svg) | ![Smooth](img/img_ch2d/image_rec_color.svg) |
 
-![Eigenarrays](img/img_ch2d/image_eigen.svg)
-![Channels](img/img_ch2d/image_res.svg)
+<center><em>'Monet': Initial (left) and smoothed (right) images.</em></center>
 
+![Eigenarrays](img/img_ch2d/image_eigen.svg)
+*'Monet': Eigenarrays.*
+
+![Channels](img/img_ch2d/image_res.svg)
+*'Monet': Three channels of the reconstructed and residual images.*

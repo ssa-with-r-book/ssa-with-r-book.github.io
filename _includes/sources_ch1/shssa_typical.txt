@@ -7,7 +7,7 @@ clplot(F)
 s1 <- ssa(F, L = 72)
 plot(s1, type = "vectors", idx = 1:12)
 plot(s1, type = "series", groups = 1:6, layout = c(2, 3))
-plot(wcor(s1, groups = 1:20))
+plot(wcor(s1, groups = 1:20), scales = list(at = seq(1,20,2)))
 plot(reconstruct(s1, groups = list(c(1, 4, 7))), 
      add.residuals = FALSE, 
      plot.method = "xyplot", superpose = TRUE)
