@@ -22,9 +22,6 @@ p1 <- xyplot(iter.real + iter.est ~ lseq,
              type = "l", ylab = ylab1, xlab = xlab)
 p2 <- xyplot(err1 + err2 ~ lseq,
              type = "l", ylab = ylab2, xlab = xlab)
-fragmentSkip(pdf(
-  "../img_ch1/iossa_sim.pdf", paper = "special", width = 4, height = 3
-))
 print(p1, split = c(1, 1, 1, 2), more = TRUE)
 print(p2, split = c(1, 2, 1, 2), more = FALSE)
 {% endhighlight %}
