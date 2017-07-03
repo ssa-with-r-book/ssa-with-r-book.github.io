@@ -2,7 +2,7 @@
 #Estimation by means of the first iteration of Cadzow
 #iterations (SSA)
 par <- parestimate(s0, groups = list(1:rank), 
-                   method = "esprit-ls")
+                   method = "esprit")
 print(par)
 o <- order(abs(par$periods), decreasing = TRUE)
 periods <- (par$periods[o])

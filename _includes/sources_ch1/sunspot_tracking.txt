@@ -11,7 +11,7 @@ periods <- function(M, L) {
             function (i) {
               s <- ssa(sun.oscill[i:(i + M - 1)], L = L)
               par <- parestimate(s, groups = list(c(1:rank)), 
-                                 method = "esprit-ls")
+                                 method = "esprit")
               abs(par$periods[1])
             }),
      start = time(sunspot2)[M + 1], delta = 1)

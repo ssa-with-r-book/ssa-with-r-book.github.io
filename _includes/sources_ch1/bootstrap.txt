@@ -19,7 +19,8 @@ err <- numeric(length(range))
 k <- 1
 for (num.comp in range) {
   bf0 <- forecast(s, groups = list(1:num.comp), 
-                  method = "bootstrap-recurrent", 
+                  method = "recurrent",
+                  bootstrap = TRUE,
                   len = Q, R = R, level = 0.9)
   
   bf0.pert <- perturbation(s, noise, R, Q, num.comp, L, 

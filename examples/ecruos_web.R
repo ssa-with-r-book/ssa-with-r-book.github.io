@@ -1,5 +1,6 @@
 library(Rssa)
 library(lattice)
+library(methods)
 
 # lattice.options(default.theme =
 #                 modifyList(standard.theme("svg", color = TRUE),

@@ -1,7 +1,7 @@
 {% highlight r %}
 #Estimation by means of the limit of Cadzow iterations
 parc <- parestimate(sc, groups = list(1:rank), 
-                    method = "esprit-ls")
+                    method = "esprit")
 print(parc)
 oc <- order(abs(parc$periods), decreasing = TRUE)
 periodsc <- (parc$periods[o])

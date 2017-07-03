@@ -10,16 +10,16 @@ L <- 28
 Lt <- 14
 s <- ssa(window(series, end = N - cut), L = L)
 parestimate(s, groups = list(trend = c(1:r)), 
-            method = "esprit-ls")$moduli
+            method = "esprit")$moduli
 roots(lrr(s, groups = list(trend = c(1:r))))[1]
 rec <- reconstruct(s, groups = list(1:r))
 st <- ssa(window(series, end = N - cut), 
           kind = "toeplitz-ssa", L = Lt)
 parestimate(st, groups = list(trend = c(1:r)), 
-            method = "esprit-ls")$moduli
+            method = "esprit")$moduli
 parestimate(st, groups = list(trend = c(1:r)), 
             normalize.roots = FALSE,
-            method = "esprit-ls")$moduli
+            method = "esprit")$moduli
 roots(lrr(st, groups = list(trend = c(1:r))))[1]
 fr <- rforecast(s, groups = list(trend = c(1:r)), 
                 len = len, only.new = TRUE)

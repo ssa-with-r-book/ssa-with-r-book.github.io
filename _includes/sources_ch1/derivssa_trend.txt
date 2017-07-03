@@ -7,6 +7,7 @@ rf <- reconstruct(sf, groups =
 plot(rf, plot.method = "xyplot", superpose = TRUE, 
      add.residuals = FALSE,
      col = c("black", "darkgreen", "red"), lwd = c(1, 1, 2))
-p<- parestimate(sf, groups = list(1:10), method = "esprit-ls")
+p<- parestimate(sf, groups = list(1:10),
+                method = "esprit")
 print(p$period[seq(1, 10, 2)], digits = 3)
 {% endhighlight %}

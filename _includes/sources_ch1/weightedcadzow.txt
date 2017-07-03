@@ -22,5 +22,5 @@ fr <- rforecast(ss01.1, groups = list(1:ncomp), len = cut)
 xyplot(cbind(Original = co2, Cadzow1and01 = c01.1, 
              ForecastCadzow = fr), superpose = TRUE)
 print(parestimate(ss01.1, groups = list(1:ncomp), 
-            method = "esprit-ls"))
+                  method = "esprit"))
 {% endhighlight %}

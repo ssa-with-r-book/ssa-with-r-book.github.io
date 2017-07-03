@@ -11,7 +11,7 @@ r <- reconstruct(sp, groups = list(trend = 1:2))
 hotel.2years.data <- data.frame(x = 1:n, y = hotel.2years)
 fit.2years <- lm(y ~ x, data = hotel.2years.data)
 fit.2years.continued <- predict(fit.2years,
-                              newdata = data.frame(x = 1:len)) 
+                                newdata = data.frame(x = 1:len)) 
 hotel.data <- data.frame(x = 1:len, y = hotel)
 fit <- lm(y ~ x, data = hotel.data)
 fit.rec <- lm(r$trend ~ x, data = hotel.2years.data)

@@ -6,7 +6,7 @@ s <- ssa(co2)
 print(parestimate(s, groups = list(c(2, 3)), method = "pairs"))
 # Estimate the periods and rates using ESPRIT
 pe <- parestimate(s, groups = list(1:6), 
-                  method = "esprit-ls")
+                  method = "esprit")
 print(pe)
 plot(pe)
 {% endhighlight %}

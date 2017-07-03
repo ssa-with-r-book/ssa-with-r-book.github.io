@@ -3,7 +3,7 @@ s_filled = ssa(g, L = 52416, neig = 100)
 pg <- vector(length = 99)
 for (i in 1:99) {
   pg[i] <- parestimate(s_filled, groups = list(i:(i + 1)), 
-                       method = "esprit-ls")$period[1]
+                       method = "esprit")$period[1]
 }
 print(ind <- which(pg < 1/0.003))
 print(pg[ind], digits = 0)

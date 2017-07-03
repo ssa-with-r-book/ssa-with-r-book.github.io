@@ -25,7 +25,8 @@ matplot(data.frame(initial, forecasted), ylab = NULL,
         type = 'l', col = c('black', 'red'), lty = c(1, 1))
 set.seed(3)
 for4 <- forecast(s, groups = list(1:6), 
-                 method = "bootstrap-recurrent", 
+                 method = "recurrent",
+                 bootstrap = TRUE,
                  len = 24, R = 20, level = 0.99)
 plot(for4, include = 36, shadecols = "green", type = "l")
 {% endhighlight %}
