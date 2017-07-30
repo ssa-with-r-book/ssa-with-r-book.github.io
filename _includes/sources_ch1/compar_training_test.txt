@@ -1,0 +1,12 @@
+{% highlight r %}
+name <- "Sweetwhite"
+wine <- window(AustralianWine, end = time(AustralianWine)[174])
+series <- wine[, name]
+set.seed(1)
+forecast.len <- 12
+base.len <- length(series) - forecast.len
+F.base <- window(series, 
+                 end = time(series)[base.len]) # training
+F.new <- window(series,
+                start = time(series)[base.len + 1]) # test
+{% endhighlight %}

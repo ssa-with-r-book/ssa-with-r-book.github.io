@@ -1,5 +1,5 @@
 {% highlight r %}
-data(MotorVehicle)
+data("MotorVehicle", package = "Rssa")
 s <- ssa(MotorVehicle, L = 264)
 sf <- fossa(s, nested.groups = 1:19)
 rf <- reconstruct(sf, groups = 

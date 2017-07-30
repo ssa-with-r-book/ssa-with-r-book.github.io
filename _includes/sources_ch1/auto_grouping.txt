@@ -1,6 +1,5 @@
 {% highlight r %}
-library(ssabook)
-data("paynsa")
+data("paynsa", package = "ssabook")
 n <- 241
 pay <- window(paynsa, start = time(paynsa)[n])
 s <- ssa(pay, L = 36)
@@ -34,5 +33,5 @@ specSA <- spectrum(pay, plot = FALSE)
 w.pay <- seq(0, length.out = length(specNSA$spec), 
              by = 1/length(pay)) 
 xyplot(log(specNSA$spec) + log(specSA$spec) ~ w.pay, 
-       type = 'l', xlab = NULL, ylab = NULL)
+       type = "l", xlab = NULL, ylab = NULL)
 {% endhighlight %}

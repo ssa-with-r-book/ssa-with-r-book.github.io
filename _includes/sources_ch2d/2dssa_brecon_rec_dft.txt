@@ -1,5 +1,4 @@
 {% highlight r %}
-library("lattice")
 plot2d(centered.mod.fft(brecon - r.brecon$F1))
 plot2d(centered.mod.fft(brecon - r.brecon$F1 - r.brecon$F2))
 plot2d(centered.mod.fft(brecon - r.brecon$F1 - 

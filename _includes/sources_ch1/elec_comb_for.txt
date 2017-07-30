@@ -12,8 +12,8 @@ xyplot(cbind(window(elec, start = c(1985, 12)),
              window(fi, start = c(1993, 9)) + 
                window(f_sa, start = c(1993, 9))),
        superpose = TRUE, type = "l", ylab = NULL, xlab = NULL,
-       auto.key = list(text = c("original", 'trend', 
-                                'forecast'),
+       auto.key = list(text = c("original", "trend", 
+                                "forecast"),
                        type = c("l", "l", "l"),
                        lines = TRUE, points = FALSE),
        par.settings = theme)

@@ -1,5 +1,5 @@
 {% highlight r %}
-data("sunspot2")
+data("sunspot2", package = "ssabook")
 s <- ssa(sunspot2, L = 11)
 r <- reconstruct(s, groups = list(Trend = 1))
 plot(r, plot.method = "xyplot", superpose = TRUE)

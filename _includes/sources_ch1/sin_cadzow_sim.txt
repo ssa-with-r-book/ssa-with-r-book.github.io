@@ -28,8 +28,7 @@ if (SIMUL) {
   })))
   cadzow.sim <- as.data.frame(t(RMSE))
 } else {
-  library("ssabook")
-  data("cadzow.sim")
+  data("cadzow.sim", package = "ssabook")
 }
 print(cadzow.sim)
 {% endhighlight %}

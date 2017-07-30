@@ -5,16 +5,16 @@ s <- ssa(co2, L = 120)
 # The result is the set of forecasts for each group
 for1 <- rforecast(s, groups = list(1, c(1,4), 1:4, 1:6), 
                   len = 12)
-matplot(data.frame(for1), type = 'b', 
-        pch = c('1', '2', '3', '4'), ylab = "")
+matplot(data.frame(for1), type = "b", 
+        pch = c("1", "2", "3", "4"), ylab = "")
 # Vector forecast, the forecasted points are 
 # added to the base series
 for1a <- vforecast(s, 
                    groups = list(1, trend = c(1,4), 1:4, 1:6), 
                    len = 36, only.new = FALSE)
 # Plot of the forecast based on the second group c(1,4)
-plot(cbind(co2, for1a$trend), plot.type = 'single', 
-     col = c('black', 'red'), ylab = NULL)
+plot(cbind(co2, for1a$trend), plot.type = "single", 
+     col = c("black", "red"), ylab = NULL)
 # Reverse recurrent forecast
 len <- 60
 for2 <- rforecast(s, groups = list(1:6), len = len, 
@@ -22,11 +22,19 @@ for2 <- rforecast(s, groups = list(1:6), len = len,
 initial <- c(rep(NA, len), co2)
 forecasted <- c(for2, rep(NA, length(co2)))
 matplot(data.frame(initial, forecasted), ylab = NULL,
-        type = 'l', col = c('black', 'red'), lty = c(1, 1))
+        type = "l", col = c("black", "red"), lty = c(1, 1))
+set.seed(3)
+for3 <- forecast(s, groups = list(1:6), 
+                 method = "recurrent", interval = "confidence",
+                 only.intervals = FALSE,
+                 len = 24, R = 100, level = 0.99)
+plot(for3, include = 36, shadecols = "green", type = "l",
+     main = "Confidence intervals")
 set.seed(3)
 for4 <- forecast(s, groups = list(1:6), 
-                 method = "recurrent",
-                 bootstrap = TRUE,
-                 len = 24, R = 20, level = 0.99)
-plot(for4, include = 36, shadecols = "green", type = "l")
+                 method = "recurrent", interval = "prediction",
+                 only.intervals = FALSE,  
+                 len = 24, R = 100, level = 0.99)
+plot(for4, include = 36, shadecols = "green", type = "l",
+     main = "Prediction intervals")
 {% endhighlight %}

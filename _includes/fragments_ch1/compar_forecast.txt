@@ -1,0 +1,35 @@
+```
+Series: F.base 
+ARIMA(1,1,0)(2,0,0)[12]                    
+Box Cox transformation: lambda= 0 
+
+Coefficients:
+          ar1    sar1    sar2
+      -0.4165  0.4847  0.2123
+s.e.   0.0722  0.0765  0.0813
+
+sigma^2 estimated as 0.03897:  log likelihood=30.78
+AIC=-53.55   AICc=-53.29   BIC=-41.22
+ETS(M,N,M) 
+
+Call:
+ ets(y = F.base) 
+
+  Smoothing parameters:
+    alpha = 0.5571 
+    gamma = 1e-04 
+
+  Initial states:
+    l = 123.5798 
+    s=1.4262 1.2408 1.0236 1.0546 1.1188 1.0852
+           0.7795 0.8136 0.8903 0.8834 0.8241 0.8598
+
+  sigma:  0.1732
+
+     AIC     AICc      BIC 
+2026.600 2029.887 2072.913 
+[1] "SSA(L,r)" "108"      "8"       
+[1] "ssa"              "55.3572366330605"
+[1] "sarima"           "60.1534718580799"
+[1] "ets"              "54.2338009066311"
+```

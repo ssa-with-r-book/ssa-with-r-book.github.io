@@ -1,6 +1,5 @@
 {% highlight r %}
-library("ssabook")
-data("dwarfst")
+data("dwarfst", package = "ssabook")
 s <- ssa(dwarfst, L = 100)
 g <- grouping.auto(s, grouping.method = "wcor", 
                    method = "average", nclust = 2)

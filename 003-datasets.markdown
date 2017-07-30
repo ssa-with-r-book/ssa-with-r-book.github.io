@@ -57,6 +57,9 @@ Here you can find data used in the book for examples. All of them can be found i
 			<td><a href = "http://www.sidc.be/silso/datafiles">Sunspots</a></td><td>Mean total sunspot number</td><td><abbr title = "1700–2015">316</abbr></td><td>annual</td><td><a href = "#ssabook-package">SSABOOK</a></td><td>sunspot2</td>
 		</tr>
 		<tr>
+			<td><abbr title = "provided by Crimtan, UK, to the authors of the R-package SSABOOK">Bookings</abbr></td><td>Numbers of hotel bookings through a particular web-site</td><td><abbr title = "23/09/2016 to 22/03/2017">4344</abbr></td><td>hourly</td><td><a href = "#ssabook-package">SSABOOK</a></td><td>bookings</td>
+		</tr>
+		<tr>
 			<td><abbr title = "Provided by Erste Bank AG, Vienna, Austria, to the authors of the R-package DATASETS">EuStockMarkets</abbr></td><td>Closing prices of major European stock indices</td><td><abbr title = "during 1994– 1998">1860</abbr></td><td>daily</td><td><abbr title = "Built-in package">DATASETS</abbr></td><td>EuStockMarkets</td>
 		</tr>
 		<tr>

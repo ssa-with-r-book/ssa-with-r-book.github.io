@@ -1,5 +1,5 @@
 {% highlight r %}
 library("Rssa")
-data("AustralianWine")
+data("AustralianWine", package = "Rssa")
 wine <- window(AustralianWine, end = time(AustralianWine)[174])
 {% endhighlight %}

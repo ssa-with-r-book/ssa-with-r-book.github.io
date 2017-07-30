@@ -1,5 +1,5 @@
 {% highlight r %}
-data(elec, package = "fma")
+data("elec", package = "fma")
 N <- length(elec)
 len <- 24
 L <- 24
@@ -23,9 +23,9 @@ xyplot(cbind(elec,
              window(fi, start = c(1993, 9)),
              fi0), 
        superpose = TRUE, type ="l", ylab = NULL, xlab = NULL,
-       auto.key = list(text = c("original", 'trend', 
-                                'forecast', 'forecast0'),
-                       type = c("l", "l", "l", 'l'),
+       auto.key = list(text = c("original", "trend", 
+                                "forecast", "forecast0"),
+                       type = c("l", "l", "l", "l"),
                        lines = TRUE, points = FALSE),
        par.settings = theme)
 {% endhighlight %}

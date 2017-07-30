@@ -1,5 +1,5 @@
 {% highlight r %}
-data(USUnemployment)
+data("USUnemployment", package = "Rssa")
 ser <- USUnemployment[, "MALE"]
 Time <- time(ser)
 L = 204

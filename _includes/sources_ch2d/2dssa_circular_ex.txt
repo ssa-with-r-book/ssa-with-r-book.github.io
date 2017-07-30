@@ -1,13 +1,12 @@
 {% highlight r %}
-library("ssabook")
-data("kruppel")
+data("kruppel", package = "ssabook")
 mask <- matrix(0, ncol = 200, nrow = 200)
 mask[, 40:160] <- 1
 s <- ssa(kruppel, L = c(20, 20), mask = mask,  
          circular = c(TRUE, FALSE))
 plot(s, type = "vectors", vectors = "factor", 
      idx = 1:12, aspect = 1.4, col = topo.colors(1000))
-rec6 <- reconstruct(s, list(`C1-6` = 1:6))
+rec6 <- reconstruct(s, list("C1-6" = 1:6))
 p <- plot(rec6, aspect = 1.4, col = topo.colors(1000))
 p$condlevels[[1]] <- 
   sub("Residuals", "Resd.", p$condlevels[[1]], fixed = TRUE)

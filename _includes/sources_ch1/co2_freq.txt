@@ -1,8 +1,8 @@
 {% highlight r %}
-# Decompose 'co2' series with default window length L
+# Decompose "co2" series with default window length L
 s <- ssa(co2)
 # Estimate the periods from 2nd and 3rd eigenvectors 
-# using default 'pairs' method
+# using default "pairs" method
 print(parestimate(s, groups = list(c(2, 3)), method = "pairs"))
 # Estimate the periods and rates using ESPRIT
 pe <- parestimate(s, groups = list(1:6), 

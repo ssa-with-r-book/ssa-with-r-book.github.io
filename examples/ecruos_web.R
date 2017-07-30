@@ -80,10 +80,10 @@ fragmentSkip <- function(exp) {
 }
 
 ecruos <- function(x, ...) {
-  # draw all images
-  capture.output(source(x, ..., echo = TRUE, max.deparse.length = Inf, keep.source = TRUE))
-  # then take output
+  # take output
   lines <- capture.output(source(x, ..., echo = FALSE, max.deparse.length = Inf, keep.source = TRUE))
+  # then draw all images
+  capture.output(source(x, ..., echo = TRUE, max.deparse.length = Inf, keep.source = TRUE))
   print(lines)
   # lines <- lines[lines != ""]
 

@@ -12,6 +12,7 @@ use_falseraster_plot <- c("3sin_ssa_wcor", "auto_wcor", "bootstrap_wcor",
 
 fixed_size <- c("winetotal_forecast", "image_color", "image_rec_color")
 
+
 setwd("master")
 
 setwd("code_ch1")
@@ -20,6 +21,7 @@ ecruos.and.extract("b_ssa_analysis_sim.R", "../../sources_ch1")
 ecruos.and.extract("b_ssa_analysis_sim_iossa.R", "../../sources_ch1") #time-comsuming
 ecruos.and.extract("b_ssa_reallife.R", "../../sources_ch1")
 ecruos.and.extract("b_ssa_forecast.R", "../../sources_ch1")
+ecruos.and.extract("b_ssa_optpar_forecast.R", "../../sources_ch1")
 ecruos.and.extract("b_ssa_reallife_forecast.R", "../../sources_ch1")
 ecruos.and.extract("b_ssa_reallife_bforecast.R", "../../sources_ch1") #time-consuming
 setwd("../")

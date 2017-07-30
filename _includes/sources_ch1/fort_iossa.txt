@@ -1,5 +1,5 @@
 {% highlight r %}
-data("AustralianWine")
+data("AustralianWine", package = "Rssa")
 Nfull <- 120
 wine <- window(AustralianWine,
                end = time(AustralianWine)[Nfull])

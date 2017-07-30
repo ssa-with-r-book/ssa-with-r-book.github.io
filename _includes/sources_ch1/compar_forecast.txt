@@ -1,0 +1,34 @@
+{% highlight r %}
+# SSA forecast
+F.base.short <- 
+  window(F.base, start = 
+           time(series)[K.sliding + forecast.base.len])
+ssa.obj <- ssa(F.base.short, L = p$L.opt)
+ssa.for <- forecast(ssa.obj,
+                    groups = list(1:p$ncomp.opt),
+                    method = method, h = forecast.len,
+                    interval = "prediction",
+                    level=c(0.8, 0.95))
+err.ssa <- (ssa.for$mean - F.new)^2
+#ARIMA forecast
+sarima.fit <- auto.arima(F.base, trace = FALSE,
+                         lambda = 0, stepwise = FALSE)
+sarima.for <- forecast(sarima.fit, h = forecast.len)
+err.sarima <- (sarima.for$mean - F.new)^2
+#ETS forecast
+ets.fit <- ets(F.base)
+ets.for <- forecast(ets.fit, h = forecast.len)
+err.ets <- (ets.for$mean - F.new)^2
+#models
+print(sarima.fit)
+print(ets.fit)
+print(c("SSA(L,r)", p$L.opt, p$ncomp.opt))
+#RMSE for test periods
+print(c("ssa", sqrt(mean(err.ssa))))
+print(c("sarima", sqrt(mean(err.sarima))))
+print(c("ets", sqrt(mean(err.ets))))
+#plot of forecasts with confidence intervals
+plot(ets.for); lines(series,col="black");
+plot(sarima.for); lines(series,col="black");
+plot(ssa.for); lines(series,col="black");
+{% endhighlight %}

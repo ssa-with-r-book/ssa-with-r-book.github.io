@@ -8,8 +8,7 @@ rowMeansQuantile <- function(x, level = 0.05) {
           mean(x)
         })
 }
-library("ssabook")
-data("iossa.err")
+data("iossa.err", package = "ssabook")
 lseq <- c(seq(0.03, 0.058, 0.002), seq(0.062, 0.1, 0.002))
 iter.real <- rowMeansQuantile(iossa.err$iter.real)
 iter.est <- iossa.err$iter.est

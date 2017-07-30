@@ -1,5 +1,4 @@
 {% highlight r %}
-data(co2)
 F <- co2; F[100:200] <- NA
 #prompt for the choice of window length
 clplot(F)

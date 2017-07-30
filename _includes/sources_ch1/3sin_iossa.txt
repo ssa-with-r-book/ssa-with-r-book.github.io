@@ -9,7 +9,7 @@ set.seed(3)
 F <- 2 * sin(2 * pi * omega1 * (1:N)) + 
   sin(2 * pi * omega2 * (1:N)) +
   3 * sin(2 * pi * omega3 * (1:N)) + sigma * rnorm(N)
-xyplot(F ~ 1:N, type = 'l')
+xyplot(F ~ 1:N, type = "l")
 s <- ssa(F, L)
 plot(s, type = "vectors", idx = 1:8, layout = c(4, 2))
 plot(wcor(s, groups = 1:20), scales = list(at = seq(1,20,2)))

@@ -1,0 +1,17 @@
+{% highlight r %}
+K.sliding <- 12
+forecast.base.len <- 2
+ns <- base.len - K.sliding - forecast.base.len + 1
+ncomp <- 1:15
+L.min <- 24
+Ls <- seq(L.min, ns - L.min, by = 12)
+method <- "recurrent"
+m0 <- forecast.sliding.mse(F.base, K.sliding = K.sliding,
+                           L = Ls, ncomp = ncomp,
+                           method = method,
+                           forecast.len = forecast.base.len)
+p <- optim.par(m0)
+print(c(p$L.opt, p$ncomp.opt, sqrt(min(p$m))))
+#these parameters provides the best forecast
+#L.opt <- 132; ncomp.opt <- 13
+{% endhighlight %}

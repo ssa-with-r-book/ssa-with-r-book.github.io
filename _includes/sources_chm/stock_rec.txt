@@ -1,5 +1,4 @@
 {% highlight r %}
-library("Rssa")
 s <- ssa(EuStockMarkets[, 1] + 1i*EuStockMarkets[, 2], 
          kind = "cssa", svd.method = "svd")
 r <- reconstruct(s, groups = list(Trend = 1:2))

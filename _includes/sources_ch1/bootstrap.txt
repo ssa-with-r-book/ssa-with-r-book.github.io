@@ -1,5 +1,5 @@
 {% highlight r %}
-data("AustralianWine")
+data("AustralianWine", package = "Rssa")
 wine <- window(AustralianWine, end = time(AustralianWine)[174])
 ser0 <- wine[, "Total"]
 Q <- 66
@@ -20,7 +20,7 @@ k <- 1
 for (num.comp in range) {
   bf0 <- forecast(s, groups = list(1:num.comp), 
                   method = "recurrent",
-                  bootstrap = TRUE,
+                  interval = "confidence",
                   len = Q, R = R, level = 0.9)
   
   bf0.pert <- perturbation(s, noise, R, Q, num.comp, L, 
@@ -49,7 +49,7 @@ xyplot(cbind(window(ser0, start = c(1984, 1)),
              bf0.pert12$mean,
              bf0.pert14$mean),
        superpose = TRUE, type = "l", ylab = NULL, xlab = NULL,
-       auto.key = list(text = c("wine, total", 
+       auto.key = list(text = c("`Total'", 
                                 "forecast, ET1-12",
                                 "forecast, ET1-14"),
                        type = c("l", "l", "l"),
@@ -58,7 +58,7 @@ xyplot(cbind(window(ser0, start = c(1984, 1)),
 xyplot(err + err.pert ~ range, type = "l", 
        ylab = NULL, xlab = NULL,
        auto.key = list(text = c("Bootstrap errors", 
-                                'Perturbation errors'),
+                                "Perturbation errors"),
                        type = c("l", "l"),
                        lines = TRUE, points = FALSE), 
        scales = list(y = list(log = TRUE)))

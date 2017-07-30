@@ -1,5 +1,5 @@
 {% highlight r %}
-data(cowtemp, package = "fma")
+data("cowtemp", package = "fma")
 series <- cowtemp
 N <- length(series)
 cut <- 14
@@ -42,10 +42,10 @@ future.NA <- rep(NA, future)
 xyplot(cbind(series, rec$F1, fr, fv, ftr),
        superpose = TRUE, type = "l", ylab = NULL, xlab = NULL,
        auto.key = list(text = c("original series", 
-                                'reconstructed series', 
-                                'recurrent forecast', 
-                                'vector forecast', 
-                                'recurrent Toeplitz forecast'),
+                                "reconstructed series", 
+                                "recurrent forecast", 
+                                "vector forecast", 
+                                "recurrent Toeplitz forecast"),
                        type = c("l", "l", "l", "l", "l"),
                        lines = TRUE, points = FALSE),
        par.settings = theme)

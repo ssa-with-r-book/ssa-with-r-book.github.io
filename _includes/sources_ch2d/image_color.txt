@@ -1,6 +1,5 @@
 {% highlight r %}
-library("ssabook")
-data("monet")
+data("monet", package = "ssabook")
 plot(c(0, 1), c(0, 1), type = "n", xlab = "", ylab = "", 
      axes = FALSE)
 rasterImage(monet, 0, 0, 1, 1, interpolate = FALSE)
@@ -14,11 +13,11 @@ plot(c(0, 1), c(0, 1), type = "n", xlab = "", ylab = "",
      axes = FALSE)
 rasterImage(rec$smooth, 0, 0, 1, 1, 
             interpolate = FALSE)
-p1 <- plot(rec, slice = list(k = 1), main = 'Red', 
+p1 <- plot(rec, slice = list(k = 1), main = "Red", 
            col = c("#000000", "#FF7070"), layout = c(3, 1))
-p2 <- plot(rec, slice = list(k = 2), main = 'Green', 
+p2 <- plot(rec, slice = list(k = 2), main = "Green", 
            col = c("#000000", "#70FF70"), layout = c(3, 1))
-p3 <- plot(rec, slice = list(k = 3), main = 'Blue',
+p3 <- plot(rec, slice = list(k = 3), main = "Blue",
            col = c("#000000", "#7070FF"), layout = c(3, 1))
 plot(p1, split = c(1, 1, 1, 3), more = TRUE)
 plot(p2, split = c(1, 2, 1, 3), more = TRUE)

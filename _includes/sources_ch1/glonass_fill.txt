@@ -1,30 +1,31 @@
 {% highlight r %}
-f <- read.table("G15.txt")[, 2]
-xyplot(f ~ 1:length(f), type = "l", ylab = NULL, xlab = NULL)
+data("g15", package = "ssabook")
+xyplot(g15 ~ 1:length(g15), type = "l", 
+       ylab = NULL, xlab = NULL)
 range1 <- 14950:15050
-f_short <- f[range1]
-f_un <- read.table(paste("G15_unevenly.txt", sep = ""))[, 2]
-f_un_short <- f_un[range1]
-p1 <- xyplot(f_short ~ range1, type = "l", 
+g15_short <- g15[range1]
+g15_un <- na.omit(as.vector(g15))
+g15_un_short <- g15_un[range1]
+p1 <- xyplot(g15_short ~ range1, type = "l", 
              ylab = NULL, xlab = NULL)
-p2 <- xyplot(f_un_short ~ range1, type = "l", 
+p2 <- xyplot(g15_un_short ~ range1, type = "l", 
              ylab = NULL, xlab = NULL)
 plot(p1, split = c(1, 1, 2, 1), more = TRUE)
 plot(p2, split = c(2, 1, 2, 1), more = FALSE)
 L <- 72
 neig <- min(L, 100)
-s <- ssa(f, L = 72, neig = neig)
-plot(s,type = "vectors", idx = 1:8, plot.contrib = FALSE)
+s <- ssa(g15, L = 72, neig = neig)
+plot(s, type = "vectors", idx = 1:8, plot.contrib = FALSE)
 g <- gapfill(s, groups = list(1:2))
-xyplot(g[range1] + f[range1] ~ range1, type = "l", 
+xyplot(g[range1] + g15[range1] ~ range1, type = "l", 
        ylab = NULL, xlab = NULL,
        par.settings = simpleTheme(col = c("red", "black")))
-spec.pgram(f_un, detrend = FALSE, log = "no", 
+spec.pgram(g15_un, detrend = FALSE, log = "no", 
            xlim = c(0.00, 0.02), ylim = c(0, 1e-14), 
            main = "", sub = "")
 axis(1, at = c(1/144, 1/72), labels = c("1/144", "1/72"), 
      las = 2)
-spec.pgram(g, detrend = FALSE, log = "no", 
+spec.pgram(as.vector(g), detrend = FALSE, log = "no", 
            xlim = c(0.00, 0.02), ylim = c(0, 1e-14),
            main = "", sub = "")
 axis(1, at = c(1/144, 1/72), labels = c("1/144", "1/72"), 

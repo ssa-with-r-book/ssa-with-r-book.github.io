@@ -5,10 +5,10 @@ mainsales <- ts(rowSums(FilledRose[, -1]))
 tsp(mainsales) <- tsp(AustralianWine)
 wine.add.mainsales <- cbind(FilledRose, mainsales)
 colnames(wine.add.mainsales) <- 
-  c(colnames(FilledRose), 'Mainsales')
+  c(colnames(FilledRose), "Mainsales")
 L <- 84
-s.totalmain <- ssa(wine.add.mainsales[, c('Mainsales', 
-                                          'Total')],
+s.totalmain <- ssa(wine.add.mainsales[, c("Mainsales", 
+                                          "Total")],
                    L = L, kind = "mssa")
 f.totalmain <- rforecast(s.totalmain, groups = list(1:14),
                          len = 11, only.new = TRUE)

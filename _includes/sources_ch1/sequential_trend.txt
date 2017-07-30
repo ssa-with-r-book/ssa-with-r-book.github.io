@@ -1,5 +1,5 @@
 {% highlight r %}
-data(MotorVehicle)
+data("MotorVehicle", package = "Rssa")
 s1 <- ssa(MotorVehicle, L = 12)
 res1 <- reconstruct(s1, groups = list(trend = 1))
 trend <- res1$trend

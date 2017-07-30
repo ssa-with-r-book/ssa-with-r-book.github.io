@@ -2,5 +2,5 @@
 resf <- residuals(rf)
 s.env <- ssa(resf^2, L = 30)
 rsd <- sqrt(reconstruct(s.env, groups = list(1))$F1)
-xyplot(resf + rsd + (-rsd) ~ time(resf), type = 'l') 
+xyplot(resf + rsd + (-rsd) ~ time(resf), type = "l") 
 {% endhighlight %}

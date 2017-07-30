@@ -1,0 +1,21 @@
+{% highlight r %}
+data("bookings", package = "ssabook")
+K.sliding <- 2
+forecast.base.len <- 2*frequency(bookings)
+base.len <- length(bookings)
+sliding.len <- base.len - K.sliding - forecast.base.len + 1
+print(sliding.len)
+ncomp <- 1:100
+L.min <- frequency(bookings)
+Ls <- seq(L.min, 10*L.min, by = frequency(bookings))
+m0 <- forecast.sliding.mse(bookings,
+                           K.sliding = K.sliding,
+                           L = Ls, ncomp = ncomp,
+                           method = "recurrent",
+                           forecast.len = forecast.base.len,  
+                           .progress = "none")
+p <- optim.par(m0)
+print(c(p$L.opt, p$ncomp.opt, sqrt(min(p$m))))
+matplot(Ls, sqrt(p$m), ylab = "", xlab = "Window lengths",
+        type = "l", col = topo.colors(100))
+{% endhighlight %}

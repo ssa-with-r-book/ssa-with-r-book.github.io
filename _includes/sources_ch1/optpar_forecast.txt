@@ -1,0 +1,10 @@
+{% highlight r %}
+forecast.len <- 2*frequency(bookings)
+ssa.obj <- ssa(bookings, L = p$L.opt)
+ssa.for <- rforecast(ssa.obj, groups = list(1:p$ncomp.opt),
+                     len = forecast.len)
+xyplot(cbind(bookings, ssa.for), 
+       type = "l", superpose = TRUE)
+xyplot(cbind(bookings, ssa.for), type = "l", 
+       superpose = TRUE, xlim = c(21,29))
+{% endhighlight %}

@@ -1,6 +1,5 @@
 {% highlight r %}
-library(ssabook)
-data("hotel")
+data("hotel", package = "ssabook")
 len <- length(hotel)
 n <- 24
 hotel.2years <- window(hotel, end = time(hotel)[n])

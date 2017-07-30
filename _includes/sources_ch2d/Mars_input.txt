@@ -1,4 +1,3 @@
 {% highlight r %}
-library("Rssa")
-data("Mars")
+data("Mars", package = "Rssa")
 {% endhighlight %}

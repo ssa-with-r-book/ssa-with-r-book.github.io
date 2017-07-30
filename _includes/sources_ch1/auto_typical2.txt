@@ -1,6 +1,5 @@
 {% highlight r %}
-library("ssabook")
-data("oilproduction")
+data("oilproduction", package = "ssabook")
 s <- ssa(oilproduction, L = 120)
 plot(s, type = "vectors", vectors = "factor", idx = 1:12)
 g0 <- grouping.auto(s, base = "series", 

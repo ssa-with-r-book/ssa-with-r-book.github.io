@@ -1,5 +1,4 @@
 {% highlight r %}
-library("lattice")
 L <- 24
 s.wineFortDrya <- ssa(wineFortDry, L = L, kind = "mssa")
 r.wineFortDrya <- reconstruct(s.wineFortDrya, groups = list(Trend = 1))

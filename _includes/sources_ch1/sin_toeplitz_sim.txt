@@ -25,8 +25,7 @@ if (SIMUL) {
     
   toeplitz.sim <- as.data.frame(t(RMSE))
 } else {
-  library("ssabook")
-  data("toeplitz.sim")
+  data("toeplitz.sim", package = "ssabook")
 }
-matplot(alpha, toeplitz.sim, type = 'l', ylim = c(0, 0.25))
+matplot(alpha, toeplitz.sim, type = "l", ylim = c(0, 0.25))
 {% endhighlight %}

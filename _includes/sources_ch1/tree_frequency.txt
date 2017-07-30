@@ -1,6 +1,5 @@
 {% highlight r %}
-library(ssabook)
-data("dftreering")
+data("dftreering", package = "ssabook")
 L <- 300
 s.tree <- ssa(dftreering, L = L, neig = L)
 g.tree <- grouping.auto(s.tree, base = "series", 
@@ -13,7 +12,7 @@ specs <-
 w.tree <- seq(0, length.out = length(specs$F1),
               by = 1/length(dftreering)) 
 xyplot(F1 + F2 + F3 + F4 + F5 ~ w.tree, data = specs,
-       superpose = FALSE, type = 'l', xlab = NULL, ylab = NULL,
+       superpose = FALSE, type = "l", xlab = NULL, ylab = NULL,
        auto.key = list(lines = TRUE, points = FALSE,
                        column = 5))
 {% endhighlight %}

@@ -1,0 +1,49 @@
+{% highlight r %}
+library("plyr")
+forecast.mse <- function(x, F.check,
+                         forecast.len = 1, ...) {
+  stopifnot(length(F.check) == forecast.len)
+  f <- forecast(x, h = forecast.len, ...)
+  mean((f$mean - F.check)^2)
+}
+forecast.sliding.mse <- function(F,
+                              L, ncomp,
+                              forecast.len = 1, 
+                              K.sliding = N %/% 4,
+                              .progress = "none", 
+                              .parallel = FALSE,
+                              ...) {
+  N <- length(F)
+  sliding.len <- N - K.sliding - forecast.len + 1
+  L.max = max(L); L.min = min(L); ncomp.max = max(ncomp)
+  stopifnot(sliding.len > L.max)
+  stopifnot(ncomp.max + 1 < min(L.min, N - L.max + 1))
+  g <- expand.grid(L = L, i = 1:K.sliding)
+  aaply(g, 1,
+        splat(function(L, i) {
+            F.train <- F[seq(from = i, len = sliding.len)]
+            F.check <- F[seq(from = sliding.len + i, 
+                             len = forecast.len)]
+            s <- ssa(F.train, L = L)
+            sapply(ncomp,
+                   function(ncomp) {
+                       res <- forecast.mse(s, F.check,
+                                           forecast.len = 
+                                             forecast.len,
+                                           groups = 
+                                             list(1:ncomp),
+                                           ...)
+                       names(res) <- as.character(ncomp)
+                       res
+                   })
+        }),
+        .progress = .progress, .parallel = .parallel)
+}
+optim.par <- function(m0) {
+  m <- apply(m0, c(1, 3), mean)
+  mpos <- which(m == min(m), arr.ind = TRUE)
+  L.opt <- Ls[mpos[1]]
+  ncomp.opt <- ncomp[mpos[2]]
+  list(L.opt = L.opt, ncomp.opt = ncomp.opt, m = m)
+}
+{% endhighlight %}

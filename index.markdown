@@ -1,6 +1,6 @@
 ---
 layout: layout-bootstrap-tmp
-title: "About book"
+title: "About"
 categories: examples
 permalink: index.html
 tags: mainpage
@@ -41,44 +41,3 @@ tags: mainpage
 	</div>
 </div>
 
-
-# Contents of the book
-
-1.	Introduction: Overview
-	-	General Scheme of the SSA family and the main concepts
-	-	Different versions of SSA
-	-	Separability in SSA
-	-	Forecasting, interpolation, low-rank approximation and parameter estimation in SSA
-	-	The package
-	-	Literature notes
-
-2.	SSA analysis of one-dimensional time series
-	-	Basic SSA
-	-	Toeplitz SSA
-	-	SSA with projection
-	-	Iterative Oblique SSA
-	-	Filter-adjusted O-SSA and SSA with derivatives
-	-	Shaped 1D-SSA
-	-	Automatic grouping in SSA
-	-	Case studies
-3.	Parameter estimation, forecasting, gap filling
-	-	Parameter estimation
-	-	Forecasting
-	-	Gap filling
-	-	Structured low-rank approximation
-	-	Case studies
-4.	SSA for multivariate time series
-	-	Complex SSA 
-	-	MSSA Analysis
-	-	MSSA forecasting
-	-	Case studies
-5.	Image processing
-	-	2D-SSA
-	-	Shaped 2D-SSA
-	-	2D ESPRIT
-	-	Case studies
-
-<!-- # Support
-
-This work is supported by the NG13-083 grant of Dynasty Foundation.
- -->

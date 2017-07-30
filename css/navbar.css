@@ -44,3 +44,15 @@ img + em {
   display: block; 
   text-align: center;
 }
+
+/*.co2 {
+  -webkit-transform: scale(0.5);
+     -moz-transform: scale(0.5);
+      -ms-transform: scale(0.5);
+       -o-transform: scale(0.5);
+          transform: scale(0.5);
+}​*/
+
+.co2 {
+  width: 80%;
+}

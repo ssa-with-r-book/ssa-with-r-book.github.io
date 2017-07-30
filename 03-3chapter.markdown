@@ -44,8 +44,10 @@ tags: codeexample
 ![Forecast](img/img_ch1/co2_for2.svg)
 *'CO2': Backward forecast of the signal.*
 
-![Forecast](img/img_ch1/co2_for4.svg)
-*'CO2': Plot of confidence intervals for the signal.*
+| ![Forecast](img/img_ch1/co2_for3.svg){: .co2} | ![Forecast](img/img_ch1/co2_for4.svg){: .co2} |
+
+<center><em>‘CO2’: Plots of confidence and prediction intervals for the forecast.</em></center>
+
 
 ### Fragment 3.3.1 (Subspace-based gap filling)
 
@@ -237,3 +239,41 @@ Warning: this example takes a lot of computational time.
 
 <center><em>'Sunspots': Heterogeneity matrices
     B=22 (left) and B=44 (right).</em></center>
+
+### Fragment 3.5.13 (Functions for the search of optimal parameters)
+{% include sources_ch1/optpar_functions.txt %}
+
+### Fragment 3.5.14 ('Bookings': Search for optimal parameters)
+{% include sources_ch1/optpar_search.txt %}
+
+![RMSE](img/img_ch1/optpar_map.svg)
+*'Bookings': Dependence of RMSE on L for different numbers of components.*
+
+### Fragment 3.5.15 ('Bookings': Forecast with optimal parameters)
+{% include sources_ch1/optpar_forecast.txt %}
+
+![Forecst](img/img_ch1/optpar_for.svg)
+*'Bookings': Forecast with optimal parameters.*
+
+![Forecst](img/img_ch1/optpar_for_last.svg)
+*'Bookings': Forecast with optimal parameters for last points.*
+
+
+### Fragments 3.5.16 ('Sweetwhite':  training and test periods) and 3.5.17 ('Sweetwhite':  Search for SSA parameters)
+{% include sources_ch1/compar_training_test.txt %}
+
+{% include sources_ch1/compar_ssa_optpar.txt %}
+
+### Fragment 3.5.18 ('Sweetwhite':  Comparison of SSA, ARIMA and ETS)
+{% include sources_ch1/compar_forecast.txt %}
+
+{% include fragments_ch1/compar_forecast.txt %}
+
+![ETS](img/img_ch1/ets_for.svg)
+*'Sweetwhite': ETS forecast with optimal parameters.*
+
+![ETS](img/img_ch1/arima_for.svg)
+*'Sweetwhite': ARIMA forecast with optimal parameters.*
+
+![ETS](img/img_ch1/ssa_for.svg)
+*'Sweetwhite': SSA forecast with optimal parameters.*
