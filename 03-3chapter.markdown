@@ -246,18 +246,19 @@ Warning: this example takes a lot of computational time.
 ### Fragment 3.5.14 ('Bookings': Search for optimal parameters)
 {% include sources_ch1/optpar_search.txt %}
 
+#### Produced output
 ![RMSE](img/img_ch1/optpar_map.svg)
 *'Bookings': Dependence of RMSE on L for different numbers of components.*
 
 ### Fragment 3.5.15 ('Bookings': Forecast with optimal parameters)
 {% include sources_ch1/optpar_forecast.txt %}
 
+#### Produced output
 ![Forecst](img/img_ch1/optpar_for.svg)
 *'Bookings': Forecast with optimal parameters.*
 
 ![Forecst](img/img_ch1/optpar_for_last.svg)
 *'Bookings': Forecast with optimal parameters for last points.*
-
 
 ### Fragments 3.5.16 ('Sweetwhite':  training and test periods) and 3.5.17 ('Sweetwhite':  Search for SSA parameters)
 {% include sources_ch1/compar_training_test.txt %}
@@ -267,6 +268,7 @@ Warning: this example takes a lot of computational time.
 ### Fragment 3.5.18 ('Sweetwhite':  Comparison of SSA, ARIMA and ETS)
 {% include sources_ch1/compar_forecast.txt %}
 
+#### Produced output
 {% include fragments_ch1/compar_forecast.txt %}
 
 ![ETS](img/img_ch1/ets_for.svg)
