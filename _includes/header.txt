@@ -1,7 +1,6 @@
-Here you can find code listings in `R` language from the corresponding chapter of the book.
+Here you can find the code listings in `R` language from the corresponding chapter of the book.
 
-You need to load `Rssa` with `lattice` to run these examples. Packages with corresponding data
-must be loaded too.
+You need to load `Rssa`, `ssabook`, `lattice`, `latticeExtra`, `plyr`, `fma` to run these examples. 
 {:.alert .alert-info}
 
 ## Contents
