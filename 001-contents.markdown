@@ -42,7 +42,7 @@ tags: mainmenu
 		1. Separability and choice of parameters
 		1. Algorithm
 		1. Basic SSA in Rssa
-	1. ToeplitzSSA
+	1. Toeplitz SSA
 		1. Method
 		1. Algorithm
 		1. Toeplitz SSA in Rssa
@@ -71,7 +71,7 @@ tags: mainmenu
 		1. Methods
 		1. Algorithm
 		1. Automatic grouping in Rssa
-	1. Casestudies
+	1. Case studies
 		1. Extraction of trend and oscillations by frequency ranges
 		1. Trends in short series
 		1. Trend and seasonality of complex form
