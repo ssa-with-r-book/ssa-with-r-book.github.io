@@ -12,7 +12,7 @@ tags: mainpage
 
 			<p><em>by Nina Golyandina, Anton Korobeynikov, Anatoly Zhigljavsky </em><br/>
 
-			<a href="http://springer.com">Springer</a>, 2017
+			<a href="http://www.springer.com/us/book/9783662573785">Springer</a>, 2018
 			</p>
 			<p class = "description"> Singular Spectrum Analysis (SSA)
 			is a well-known  methodology of analysis and forecasting of time series
@@ -36,7 +36,7 @@ tags: mainpage
 	</div>
 	<div class="row">
 		<div class = "container extraspacing">
-			<a href="https://amazon.com" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-book"></span> Watch it at Amazon</a>
+			<a href="https://www.amazon.com/Singular-Spectrum-Analysis-Nina-Golyandina/dp/3662573784/" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-book"></span> Watch it at Amazon</a>
 		</div>
 	</div>
 </div>
