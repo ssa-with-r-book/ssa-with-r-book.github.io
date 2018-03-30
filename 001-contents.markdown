@@ -9,9 +9,7 @@ tags: mainmenu
 
 # Contents of the book
 
-<details>
-<summary>1.	Introduction: Overview</summary>
-
+1.	Introduction: Overview
 	1.	General Scheme of the SSA family and the main concepts
 		1. SSA methods
 		1. The main concepts
@@ -37,8 +35,6 @@ tags: mainmenu
 	1. Installation of Rssa and description of the data used in the book 
 		1. Installation of Rssa and usage comments
 		1. Data description
-</details>
-
 2.	SSA analysis of one-dimensional time series
 	1. Basic SSA
 		1. Method
