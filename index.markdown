@@ -31,7 +31,7 @@ tags: mainpage
 			 </p>			
 		</div>
 		<div class="container col-md-4">
-			<img src="img/rssa_cover.tif" class = "img-responsive" width = "260pt">
+			<img src="img/rssa_cover.png" class = "img-responsive" width = "260pt">
 		</div>
 	</div>
 	<div class="row">
