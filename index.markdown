@@ -13,8 +13,8 @@ tags: mainpage
 			<p><em>by Nina Golyandina, Anton Korobeynikov, Anatoly Zhigljavsky </em><br/>
 
 			<a href="http://www.springer.com/us/book/9783662573785">Springer</a>, 2018.  
-			<a href="http://link-springer-com-443.webvpn.jxutcm.edu.cn/content/pdf/bfm%3A978-3-662-57380-8%2F1.pdf">Front Matter</a> (includes Preface) 
-			and <a href="http://link-springer-com-443.webvpn.jxutcm.edu.cn/content/pdf/bbm%3A978-3-662-57380-8%2F1.pdf">Back Matter</a>
+			<a href="https://link.springer.com/content/pdf/bfm%3A978-3-662-57380-8%2F1.pdf">Front Matter</a> (includes Preface) 
+			and <a href="https://link.springer.com/content/pdf/bbm%3A978-3-662-57380-8%2F1.pdf">Back Matter</a>
 			</p>
 			<p class = "description"> Singular Spectrum Analysis (SSA)
 			is a well-known  methodology of analysis and forecasting of time series
