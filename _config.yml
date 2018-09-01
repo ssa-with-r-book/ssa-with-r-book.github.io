@@ -8,4 +8,5 @@ redcarpet:
     extensions: ["xhtml"]
 exclude: ["run.sh", "haml"]
 plugins:
+  - jekyll-seo-tag
   - jekyll-sitemap
