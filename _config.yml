@@ -10,3 +10,4 @@ exclude: ["run.sh", "haml"]
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
+description: "Singular Spectrum Analysis with R is a book by Nina Golyandina, Anton Korobeynikov, Anatoly Zhigljavsky. Springer, 2018. Singular Spectrum Analysis (SSA) is a well-known methodology of analysis and forecasting of time series and, since quite recently, of digital images and other objects which are not necessarily of planar or rectangular shape and may contain gaps."
