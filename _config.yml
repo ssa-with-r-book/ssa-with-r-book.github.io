@@ -11,5 +11,5 @@ exclude: ["run.sh", "haml"]
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
-description: "This is the companion site to Singular Spectrum Analysis with R (Using R) by Golyandina, Korobeynikov, Zhigljavsky. Snippets of R-code (Rssa) are presented for decomposition, trend and periodicity extraction, forecasting, gap filling, frequency estimation of time series (SSA and MSSA), digital images (2D-SSA) and objects of arbitrary form (Shaped SSA)."
-keywords: "Singular Spectrum Analysis, using R, Rssa, time series, trend, decomposition, analysis, forecasting, frequency estimation, gap filling, digital images, shapes"
+description: "This is the companion site to Singular Spectrum Analysis with R (Using R) by Golyandina, Korobeynikov, Zhigljavsky. Snippets of R-code (Rssa) are presented for decomposition, trend and periodicity extraction, forecasting, gap filling, frequency estimation of time series (SSA and MSSA), digital images (2D-SSA)."
+keywords: "Singular Spectrum Analysis, using R, Rssa, time series, trend, decomposition, analysis, forecasting, frequency estimation, gap filling, digital images"
