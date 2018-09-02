@@ -1,4 +1,5 @@
-name: BioSSA
+name: "Singular spectrum analysis with R"
+title: "Companion site to Singular spectrum analysis with R"
 markdown: kramdown
 highlighter: rouge
 permalink: /:title
@@ -10,4 +11,5 @@ exclude: ["run.sh", "haml"]
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
-description: "Singular Spectrum Analysis with R is a book by Nina Golyandina, Anton Korobeynikov, Anatoly Zhigljavsky. Springer, 2018. Singular Spectrum Analysis (SSA) is a well-known methodology of analysis and forecasting of time series and, since quite recently, of digital images and other objects which are not necessarily of planar or rectangular shape and may contain gaps."
+description: "This is the companion site to Singular Spectrum Analysis with R (Using R) by Golyandina, Korobeynikov, Zhigljavsky. Snippets of R-code (Rssa) are presented for decomposition, trend and periodicity extraction, forecasting, gap filling, frequency estimation of time series (SSA and MSSA), digital images (2D-SSA) and objects of arbitrary form (Shaped SSA)."
+keywords: "Singular Spectrum Analysis, using R, Rssa, time series, trend, decomposition, analysis, forecasting, frequency estimation, gap filling, digital images, shapes"
