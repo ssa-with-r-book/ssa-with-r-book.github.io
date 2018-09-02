@@ -1,5 +1,4 @@
 name: "Singular spectrum analysis with R"
-title: "Companion site to Singular spectrum analysis with R"
 markdown: kramdown
 highlighter: rouge
 permalink: /:title
