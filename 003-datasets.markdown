@@ -69,7 +69,7 @@ Here you can find data used in the book for examples. All of them can be found i
 			<td><abbr title = "the data are obtained by means of the function getData of the R-package RASTER">Brecon Beacons</abbr></td><td>The test DTM of a region in South Wales, UK</td><td>80 × 100</td><td>image</td><td><a href = "#ssabook-package">SSABOOK</a></td><td>brecon</td>
 		</tr>
 		<tr>
-			<td><a href = "http://bdtnp.lbl.gov/Fly-Net/">Kruppel</a></td><td>Regularized data of gene expression for the “Krüppel” gene (a drosophila embryo)</td><td>200 × 200</td><td>image</td><td><a href = "#ssabook-package">SSABOOK</a></td><td>kruppel</td>
+			<td><a href = "http://bdtnp.lbl.gov:8080/Fly-Net/">Kruppel</a></td><td>Regularized data of gene expression for the “Krüppel” gene (a drosophila embryo)</td><td>200 × 200</td><td>image</td><td><a href = "#ssabook-package">SSABOOK</a></td><td>kruppel</td>
 		</tr>
 		<tr>
 			<td><a href = "https://commons.wikimedia.org/wiki/File:Monet.012.sonnenschirm.jpg">Monet</a></td><td>”A preview of the painting of Claude Monet called “Study of a Figure Outdoors: Woman with a Parasol, facing left”, 1886</td><td>400 × 263 × 3</td><td>image</td><td><a href = "#ssabook-package">SSABOOK</a></td><td>monet</td>
