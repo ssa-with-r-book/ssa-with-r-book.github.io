@@ -1,4 +1,4 @@
----
+﻿---
 layout: layout-bootstrap-tmp
 title: "Datasets"
 categories: examples
@@ -24,7 +24,7 @@ Here you can find data used in the book for examples. All of them can be found i
 			<td><a href = "https://www.amazon.com/Visualizing-Data-William-S-Cleveland/dp/0963488406">CO2</a></td><td>Atmospheric concentrations of CO2 in parts per million (ppm)</td><td><abbr title = "Jan 1959 - Jan 1997">468</abbr></td><td>monthly</td><td><abbr title = "Built-in package">DATASETS</abbr></td><td>co2</td>
 		</tr>
 		<tr>
-			<td><a href = "https://books.google.ru/books/about/Time_Series_Prediction.html?id=36OH9a5hpzQC&redir_esc=y">White dwarf</a></td><td>Time variation of the intensity of the variable white dwarf star PG1159-035</td><td><abbr title = "during March 1989">618</abbr></td><td>each 10 seconds</td><td><a href = "#ssabook-package">SSABOOK</a></td><td>dwarfst</td>
+			<td><a href = "https://books.google.ru/books?id=uUdaDwAAQBAJ&printsec=frontcover&dq=isbn:042997227X">White dwarf</a></td><td>Time variation of the intensity of the variable white dwarf star PG1159-035</td><td><abbr title = "during March 1989">618</abbr></td><td>each 10 seconds</td><td><a href = "#ssabook-package">SSABOOK</a></td><td>dwarfst</td>
 		</tr>
 		<tr>
 			<td><a href = "http://www.eia.gov/totalenergy/data/monthly/#summary">Production</a></td><td>Cruide oil and natural gas plant liquids production</td><td><abbr title = "Jan 1973 – Dec 1997">300</abbr></td><td>monthly</td><td><a href = "#ssabook-package">SSABOOK</a></td><td>oilproduction</td>
