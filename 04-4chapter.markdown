@@ -24,6 +24,7 @@ tags: codeexample
 
 ### Fragment 4.2.1 ('FORT' and `DRY': Reconstruction)
 
+{% include sources_ch1/wines_input.txt %}
 {% include sources_chm/wineFortDry_rec.txt %}
 
 #### Produced output
